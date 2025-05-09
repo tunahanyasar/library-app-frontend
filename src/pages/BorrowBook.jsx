@@ -470,12 +470,12 @@ const BorrowBook = ({ showNotification }) => {
                 <option value="">Kitap Seçin</option>
                 {currentBorrow && !books.some(book => String(book.id) === String(formData.bookId)) && (
                   <option value={formData.bookId}>
-                    {currentBorrow.book?.title || currentBorrow.book?.name || 'Seçili Kitap'}
+                    {currentBorrow.book?.name || 'Seçili Kitap'}
                   </option>
                 )}
                 {books.map((book) => (
                   <option key={book.id} value={book.id}>
-                    {book.title}
+                    {book.name}
                   </option>
                 ))}
               </select>
