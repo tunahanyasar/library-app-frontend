@@ -51,7 +51,7 @@ const BorrowBook = ({ showNotification }) => {
   const fetchBorrows = useCallback(async () => {
     try {
       setIsLoading(true);
-      const response = await api.borrows.getAll();
+      const response = await api.bookBorrowingService.getAll();
       // En son eklenen kayıtlar üstte görünsün diye reverse edilir
       setBorrows(response.data.slice().reverse());
       setFilteredBorrows(response.data.slice().reverse());
@@ -69,7 +69,7 @@ const BorrowBook = ({ showNotification }) => {
    */
   const fetchBooks = useCallback(async () => {
     try {
-      const response = await api.books.getAll();
+      const response = await api.bookService.getAll();
       setBooks(response.data);
     } catch (error) {
       console.error('Kitaplar yüklenirken hata:', error);
@@ -195,7 +195,7 @@ const BorrowBook = ({ showNotification }) => {
         };
 
         // API'ye güncelleme isteği gönder
-        const response = await api.borrows.update(currentBorrow.id, updateData);
+        const response = await api.bookBorrowingService.update(currentBorrow.id, updateData);
         
         if (response.status === 200) {
           showNotification('Ödünç kaydı başarıyla güncellendi', 'success');
@@ -249,7 +249,7 @@ const BorrowBook = ({ showNotification }) => {
         };
 
         // API'ye yeni kayıt isteği gönder
-        const response = await api.borrows.create(requestData);
+        const response = await api.bookBorrowingService.create(requestData);
         
         if (response.status === 201) {
           // Başarılı kayıt bildirimi
@@ -277,7 +277,7 @@ const BorrowBook = ({ showNotification }) => {
    */
   const handleDelete = async (id) => {
     try {
-      await api.borrows.delete(id);
+      await api.bookBorrowingService.delete(id);
       showNotification('Ödünç kayıt başarıyla silindi', 'success');
       fetchBorrows();
       setIsDeleteModalOpen(false);
@@ -299,7 +299,7 @@ const BorrowBook = ({ showNotification }) => {
    */
   const handleEdit = async (borrow) => {
     try {
-      const response = await api.borrows.get(borrow.id);
+      const response = await api.bookBorrowingService.get(borrow.id);
       const borrowDetails = response.data;
 
       setCurrentBorrow(borrowDetails);
