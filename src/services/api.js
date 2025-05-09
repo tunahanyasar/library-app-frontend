@@ -1,84 +1,72 @@
-/**
- * API SERVİS MODÜLÜ
- * kütüphane yönetim sistemi için API isteklerini yönetir
- * axios kullanarak backend ile iletişim kurar
- */
-
 import axios from 'axios';
 
-/**
- * API YAPILANDIRMASI
- * backend API URL'si ve axios instance'ı tanımlanır
- * tüm istekler için ortak header'lar ayarlanır
- */
-const API_URL = 'http://localhost:8080/api/v1';
+// Backend URL'yi environment variable'dan al, yoksa fallback URL'yi kullan
+const API_URL = import.meta.env.VITE_API_URL || 'https://library-app-backend-jtd1.onrender.com';
 
-const api = {
-  // Kategori işlemleri
-  categories: {
-    getAll: () => axios.get(`${API_URL}/categories`),
-    getById: (id) => axios.get(`${API_URL}/categories/${id}`),
-    create: (data) => axios.post(`${API_URL}/categories`, data),
-    update: (id, data) => axios.put(`${API_URL}/categories/${id}`, data),
-    delete: (id) => axios.delete(`${API_URL}/categories/${id}`),
-  },
-  
-  // Yazar işlemleri
-  authors: {
-    getAll: () => axios.get(`${API_URL}/authors`),
-    getById: (id) => axios.get(`${API_URL}/authors/${id}`),
-    create: (data) => axios.post(`${API_URL}/authors`, data),
-    update: (id, data) => axios.put(`${API_URL}/authors/${id}`, data),
-    delete: (id) => axios.delete(`${API_URL}/authors/${id}`),
-  },
-  
-  // Yayımcı işlemleri
-  publishers: {
-    getAll: () => axios.get(`${API_URL}/publishers`),
-    getById: (id) => axios.get(`${API_URL}/publishers/${id}`),
-    create: (data) => axios.post(`${API_URL}/publishers`, data),
-    update: (id, data) => axios.put(`${API_URL}/publishers/${id}`, data),
-    delete: (id) => axios.delete(`${API_URL}/publishers/${id}`),
-  },
-  
-  // Kitap işlemleri
-  books: {
-    getAll: () => axios.get(`${API_URL}/books`),
-    getById: (id) => axios.get(`${API_URL}/books/${id}`),
-    create: (data) => axios.post(`${API_URL}/books`, data),
-    update: (id, data) => axios.put(`${API_URL}/books/${id}`, data),
-    delete: (id) => axios.delete(`${API_URL}/books/${id}`),
-  },
+// Axios instance oluştur
+const api = axios.create({
+    baseURL: API_URL,
+    headers: {
+        'Content-Type': 'application/json'
+    }
+});
 
-  // Ödünç alma işlemleri
-  borrows: {
-    getAll: () => axios.get(`${API_URL}/borrows`),
-    get: (id) => axios.get(`${API_URL}/borrows/${id}`),
-    create: (data) => axios.post(`${API_URL}/borrows`, data),
-    update: (id, data) => axios.put(`${API_URL}/borrows/${id}`, data),
-    delete: (id) => axios.delete(`${API_URL}/borrows/${id}`),
-  },
-};
+// API isteklerini logla
+api.interceptors.request.use(request => {
+    console.log('Starting Request:', request);
+    return request;
+});
 
-export default api;
+api.interceptors.response.use(
+    response => {
+        console.log('Response:', response);
+        return response;
+    },
+    error => {
+        console.error('API Error:', error);
+        return Promise.reject(error);
+    }
+);
 
-// Kitap işlemleri
+// API fonksiyonları
 export const bookService = {
-  getAll: async () => {
-    const response = await api.books.getAll();
-    return { data: response.data.bookList || response.data };
-  },
-  create: (book) => api.books.create(book),
-  delete: (id) => api.books.delete(id),
+    getAll: () => api.get('/api/v1/books'),
+    getById: (id) => api.get(`/api/v1/books/${id}`),
+    create: (book) => api.post('/api/v1/books', book),
+    update: (id, book) => api.put(`/api/v1/books/${id}`, book),
+    delete: (id) => api.delete(`/api/v1/books/${id}`)
 };
 
-// Yazar işlemleri
 export const authorService = {
-  getAll: () => api.authors.getAll(),
-  create: (author) => api.authors.create(author),
+    getAll: () => api.get('/api/v1/authors'),
+    getById: (id) => api.get(`/api/v1/authors/${id}`),
+    create: (author) => api.post('/api/v1/authors', author),
+    update: (id, author) => api.put(`/api/v1/authors/${id}`, author),
+    delete: (id) => api.delete(`/api/v1/authors/${id}`)
 };
 
-// Yayımcı işlemleri
+export const categoryService = {
+    getAll: () => api.get('/api/v1/categories'),
+    getById: (id) => api.get(`/api/v1/categories/${id}`),
+    create: (category) => api.post('/api/v1/categories', category),
+    update: (id, category) => api.put(`/api/v1/categories/${id}`, category),
+    delete: (id) => api.delete(`/api/v1/categories/${id}`)
+};
+
 export const publisherService = {
-  getAll: () => api.publishers.getAll(),
-}; 
+    getAll: () => api.get('/api/v1/publishers'),
+    getById: (id) => api.get(`/api/v1/publishers/${id}`),
+    create: (publisher) => api.post('/api/v1/publishers', publisher),
+    update: (id, publisher) => api.put(`/api/v1/publishers/${id}`, publisher),
+    delete: (id) => api.delete(`/api/v1/publishers/${id}`)
+};
+
+export const bookBorrowingService = {
+    getAll: () => api.get('/api/v1/borrows'),
+    getById: (id) => api.get(`/api/v1/borrows/${id}`),
+    create: (borrowing) => api.post('/api/v1/borrows', borrowing),
+    update: (id, borrowing) => api.put(`/api/v1/borrows/${id}`, borrowing),
+    delete: (id) => api.delete(`/api/v1/borrows/${id}`)
+};
+
+export default api; 
