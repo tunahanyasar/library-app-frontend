@@ -49,7 +49,7 @@ const Books = ({ showNotification }) => {
    */
   const fetchBooks = useCallback(async () => {
     try {
-      const response = await api.books.getAll();
+      const response = await api.bookService.getAll();
       // En son eklenen kitaplar üstte görünsün diye reverse edilir
       setBooks(response.data.slice().reverse());
     } catch (error) {
@@ -68,7 +68,7 @@ const Books = ({ showNotification }) => {
    */
   const fetchPublishers = useCallback(async () => {
     try {
-      const response = await api.publishers.getAll();
+      const response = await api.publisherService.getAll();
       setPublishers(response.data);
     } catch (error) {
       console.error('Yayımcılar yüklenirken hata:', error);
@@ -86,7 +86,7 @@ const Books = ({ showNotification }) => {
    */
   const fetchAuthors = useCallback(async () => {
     try {
-      const response = await api.authors.getAll();
+      const response = await api.authorService.getAll();
       setAuthors(response.data);
     } catch (error) {
       console.error('Yazarlar yüklenirken hata:', error);
@@ -104,7 +104,7 @@ const Books = ({ showNotification }) => {
    */
   const fetchCategories = useCallback(async () => {
     try {
-      const response = await api.categories.getAll();
+      const response = await api.categoryService.getAll();
       setCategories(response.data);
     } catch (error) {
       console.error('Kategoriler yüklenirken hata:', error);
@@ -188,7 +188,7 @@ const Books = ({ showNotification }) => {
       };
       if (currentBook) {
         // Güncelleme işlemi
-        await api.books.update(currentBook.id, requestData);
+        await api.bookService.update(currentBook.id, requestData);
         showNotification('Kitap başarıyla güncellendi', 'success');
         setBooks(prev => {
           const updated = prev.map(b => b.id === currentBook.id ? { ...b, ...requestData } : b);
@@ -198,7 +198,7 @@ const Books = ({ showNotification }) => {
         });
       } else {
         // Ekleme işlemi
-        const response = await api.books.create(requestData);
+        const response = await api.bookService.create(requestData);
         showNotification('Kitap başarıyla eklendi', 'success');
         setBooks(prev => [response.data, ...prev]);
       }
@@ -225,7 +225,7 @@ const Books = ({ showNotification }) => {
   // Silme işlemini gerçekleştir
   const handleDelete = async (id) => {
     try {
-      await api.books.delete(id);
+      await api.bookService.delete(id);
       showNotification('Kitap başarıyla silindi', 'success');
       fetchBooks();
       setIsDeleteModalOpen(false);

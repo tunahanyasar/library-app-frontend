@@ -40,7 +40,7 @@ const Authors = ({ showNotification }) => {
    */
   const fetchAuthors = useCallback(async () => {
     try {
-      const response = await api.authors.getAll();
+      const response = await api.authorService.getAll();
       // En son eklenen yazarlar üstte görünsün diye reverse edilir
       setAuthors(response.data.slice().reverse());
     } catch (error) {
@@ -106,7 +106,7 @@ const Authors = ({ showNotification }) => {
 
       if (currentAuthor) {
         // Güncelleme işlemi
-        await api.authors.update(currentAuthor.id, requestData);
+        await api.authorService.update(currentAuthor.id, requestData);
         showNotification('Yazar başarıyla güncellendi', 'success');
         setAuthors(prev => {
           const updated = prev.map(a => a.id === currentAuthor.id ? { ...a, ...requestData } : a);
@@ -116,7 +116,7 @@ const Authors = ({ showNotification }) => {
         });
       } else {
         // Ekleme işlemi
-        const response = await api.authors.create(requestData);
+        const response = await api.authorService.create(requestData);
         showNotification('Yazar başarıyla eklendi', 'success');
         setAuthors(prev => [response.data, ...prev]);
       }
@@ -141,7 +141,7 @@ const Authors = ({ showNotification }) => {
    */
   const handleDelete = async (id) => {
     try {
-      await api.authors.delete(id);
+      await api.authorService.delete(id);
       showNotification('Yazar başarıyla silindi', 'success');
       fetchAuthors();
       setIsDeleteModalOpen(false);
