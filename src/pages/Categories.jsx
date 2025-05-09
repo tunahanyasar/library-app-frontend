@@ -40,7 +40,7 @@ const Categories = ({ showNotification }) => {
    */
   const fetchCategories = useCallback(async () => {
     try {
-      const response = await api.categories.getAll();
+      const response = await api.categoryService.getAll();
       // En son eklenen kategoriler üstte görünsün diye reverse edilir
       setCategories(response.data.slice().reverse());
     } catch (error) {
@@ -99,7 +99,7 @@ const Categories = ({ showNotification }) => {
     try {
       if (currentCategory) {
         // Güncelleme işlemi
-        await api.categories.update(currentCategory.id, formData);
+        await api.categoryService.update(currentCategory.id, formData);
         showNotification('Kategori başarıyla güncellendi', 'success');
         // State güncelleme: Güncellenen kategoriyi listenin başına taşır
         setCategories(prev => {
@@ -110,7 +110,7 @@ const Categories = ({ showNotification }) => {
         });
       } else {
         // Yeni kategori ekleme işlemi
-        const response = await api.categories.create(formData);
+        const response = await api.categoryService.create(formData);
         showNotification('Kategori başarıyla eklendi', 'success');
         // Yeni kategoriyi listenin başına ekler
         setCategories(prev => [response.data, ...prev]);
@@ -138,7 +138,7 @@ const Categories = ({ showNotification }) => {
    */
   const handleDelete = async (id) => {
     try {
-      const response = await api.categories.delete(id);
+      const response = await api.categoryService.delete(id);
       // Backend'den gelen yanıtı kontrol et
       if (response.data && response.data.includes('kayıtlı kitap mevcut')) {
         showNotification('Bu kategori silinemez! Veri tabanında bu kategoriyi kullanan kitaplar bulunmaktadır.', 'error');
