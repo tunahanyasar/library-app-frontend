@@ -63,6 +63,7 @@ const publisherService = {
 
 const bookBorrowingService = {
     getAll: () => apiInstance.get('/api/v1/borrows'),
+    get: (id) => apiInstance.get(`/api/v1/borrows/${id}`),
     getById: (id) => apiInstance.get(`/api/v1/borrows/${id}`),
     create: (borrowing) => apiInstance.post('/api/v1/borrows', borrowing),
     update: (id, borrowing) => apiInstance.put(`/api/v1/borrows/${id}`, borrowing),
