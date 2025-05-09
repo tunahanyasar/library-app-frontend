@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// Backend URL'yi environment variable'dan al, yoksa fallback URL'yi kullan
 const API_URL = import.meta.env.VITE_API_URL || 'https://library-app-backend-jtd1.onrender.com';
 
 // Axios instance oluştur
@@ -9,6 +10,23 @@ const api = axios.create({
         'Content-Type': 'application/json'
     }
 });
+
+// API isteklerini logla
+api.interceptors.request.use(request => {
+    console.log('Starting Request:', request);
+    return request;
+});
+
+api.interceptors.response.use(
+    response => {
+        console.log('Response:', response);
+        return response;
+    },
+    error => {
+        console.error('API Error:', error);
+        return Promise.reject(error);
+    }
+);
 
 // API fonksiyonları
 export const bookService = {
