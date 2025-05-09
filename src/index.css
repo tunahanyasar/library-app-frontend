@@ -1,0 +1,99 @@
+/*
+  UYGULAMA GENELİ CSS DOSYASI
+  - Temel stiller ve global ayarlar
+  - TailwindCSS ve özel stiller
+  - Bileşen bazlı özelleştirmeler
+*/
+
+/* --- Temel Reset ve Box Sizing --- */
+/*
+  Tüm elementler için box-sizing ve margin/padding sıfırlama
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- TailwindCSS Katmanları --- */
+/*
+  Tailwind'in base, components ve utilities katmanları
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --primary-color: #8B4513;
+    --secondary-color: #D2691E;
+    --accent-color: #DEB887;
+    --background-color: #FDF5E6;
+    --text-color: #2C1810;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --hover-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  body {
+    @apply bg-[#FDF5E6] text-[#2C1810];
+    font-family: 'Poppins', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    @apply text-[#8B4513];
+  }
+}
+
+@layer components {
+  .book-card {
+    @apply bg-white rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+    background: linear-gradient(145deg, #ffffff, #f5f5f5);
+    border-left: 4px solid var(--primary-color);
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-[#8B4513] text-white rounded-md transition-all duration-300 hover:bg-[#D2691E] hover:-translate-y-0.5;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .page-title {
+    @apply text-4xl font-bold text-center mb-8 relative pb-4;
+    color: var(--primary-color);
+  }
+
+  .page-title::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1;
+    background-color: var(--accent-color);
+  }
+
+  .nav-link {
+    @apply text-white px-4 py-2 transition-colors duration-300 hover:text-[#DEB887];
+  }
+
+  .form-input {
+    @apply w-full px-4 py-2 mb-4 rounded-md border border-[#DEB887] focus:outline-none focus:border-[#8B4513] focus:ring-2 focus:ring-[#8B4513]/10;
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer utilities {
+  .fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Özel Bileşen Stilleri --- */
+/*
+  Uygulama içindeki özel bileşenler için eklenen stiller
+*/
