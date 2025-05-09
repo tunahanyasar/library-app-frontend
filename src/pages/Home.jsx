@@ -203,24 +203,14 @@ const Home = ({ showNotification }) => {
           ))}
         </div>
       </div>
-      <div className="text-center text-[#8B4513]/60 text-sm mt-12 font-['Playfair_Display']">
-        <div className="flex items-center justify-center space-x-2">
-          <span>© {new Date().getFullYear()} Library App</span>
-          <span>•</span>
-          <a 
-            href="https://github.com/tunahanyasar" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex items-center space-x-1 hover:text-[#8B4513] transition-colors duration-300"
-          >
-            <FaGithub className="text-lg" />
-            <span>İletişim</span>
-          </a>
-        </div>
-      </div>
+      
 
       {/* İstatistik Kartları */}
+      <h2 className="text-2xl font-semibold text-[#8B4513] mb-6 text-center font-['Playfair_Display']">
+          İstatistikler
+        </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        
         {/* Toplam Kitap Sayısı */}
         <div className="bg-white rounded-lg shadow-lg p-6 border border-[#DEB887]">
           <div className="flex items-center justify-between">
@@ -316,7 +306,23 @@ const Home = ({ showNotification }) => {
           </div>
         </div>
       </div>
+      <div className="text-center text-[#8B4513]/60 text-sm mt-12 font-['Playfair_Display']">
+        <div className="flex items-center justify-center space-x-2">
+          <span>© {new Date().getFullYear()} Library App</span>
+          <span>•</span>
+          <a 
+            href="https://github.com/tunahanyasar" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center space-x-1 hover:text-[#8B4513] transition-colors duration-300"
+          >
+            <FaGithub className="text-lg" />
+            <span>İletişim</span>
+          </a>
+        </div>
+      </div>
     </div>
+    
   );
 };
 
