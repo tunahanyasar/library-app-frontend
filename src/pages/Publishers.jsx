@@ -152,6 +152,9 @@ const Publishers = ({ showNotification }) => {
       await api.publishers.delete(id);
       showNotification('Yayımcı başarıyla silindi', 'success');
       fetchPublishers();
+      // Modalı kapat ve state'i temizle
+      setIsDeleteModalOpen(false);
+      setPublisherToDelete(null);
     } catch (error) {
       console.error('Silme hatası:', error);
       showNotification('Yayımcı silinirken bir hata oluştu', 'error');

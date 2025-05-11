@@ -94,12 +94,12 @@ const Home = ({ showNotification }) => {
       setIsLoading(true);
       // Tüm API isteklerini paralel olarak yap
       const [booksRes, authorsRes, categoriesRes, borrowsRes, recentBooksRes, recentBorrowsRes] = await Promise.all([
-        api.bookService.getAll().catch(err => ({ data: [] })),
-        api.authorService.getAll().catch(err => ({ data: [] })),
-        api.categoryService.getAll().catch(err => ({ data: [] })),
-        api.bookBorrowingService.getAll().catch(err => ({ data: [] })),
-        api.bookService.getAll().catch(err => ({ data: [] })),
-        api.bookBorrowingService.getAll().catch(err => ({ data: [] }))
+        api.bookService.getAll().catch(() => ({ data: [] })),
+        api.authorService.getAll().catch(() => ({ data: [] })),
+        api.categoryService.getAll().catch(() => ({ data: [] })),
+        api.bookBorrowingService.getAll().catch(() => ({ data: [] })),
+        api.bookService.getAll().catch(() => ({ data: [] })),
+        api.bookBorrowingService.getAll().catch(() => ({ data: [] }))
       ]);
 
       // İstatistikleri güncelle
