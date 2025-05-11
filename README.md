@@ -6,6 +6,8 @@ Kütüphane yönetimi için modern, kullanıcı dostu bir web uygulamasıdır. R
 * **React**, **Vite**, **Tailwind CSS**, **Spring Boot** ve **PostgreSQL** kullanılmıştır. Hazır olarak verilen backend projesine **React** ile frontend hazırlandı.
 * Modern ve responsive bir arayüze sahiptir.
 
+* Projenin Canlı Linki : [ https://library-app-frontend-omega.vercel.app/ ]
+
 ---
 
 ## :computer: Kurulum ve Kullanım
