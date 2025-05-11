@@ -145,6 +145,9 @@ const Categories = ({ showNotification }) => {
       } else if (response.data && response.data.includes('silme işlemi başarılı')) {
         showNotification('Kategori başarıyla silindi', 'success');
         fetchCategories();
+        // Modalı kapat ve state'i temizle
+        setIsDeleteModalOpen(false);
+        setCategoryToDelete(null);
       } else {
         showNotification('Kategori silinirken bir hata oluştu', 'error');
       }
