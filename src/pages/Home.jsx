@@ -304,16 +304,20 @@ const Home = ({ showNotification }) => {
       </div>
 
       {/* GitHub Linki */}
-      <div className="text-center">
-        <a
-          href="https://github.com/alisimsek/Library-Management-Project"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center space-x-2 text-[#8B4513] hover:text-[#D2691E] transition-colors duration-200"
-        >
-          <FaGithub className="h-6 w-6" />
-          <span>GitHub'da Görüntüle</span>
-        </a>
+      <div className="text-center text-[#8B4513]/60 text-sm mt-12 font-['Playfair_Display']">
+        <div className="flex items-center justify-center space-x-2">
+          <span>© {new Date().getFullYear()} Library App</span>
+          <span>•</span>
+          <a 
+            href="https://github.com/tunahanyasar" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center space-x-1 hover:text-[#8B4513] transition-colors duration-300"
+          >
+            <FaGithub className="text-lg" />
+            <span>İletişim</span>
+          </a>
+        </div>
       </div>
     </div>
   );
