@@ -417,7 +417,7 @@ const Books = ({ showNotification }) => {
                   name="publicationYear"
                   value={formData.publicationYear}
                   onChange={handleInputChange}
-                  min="1800"
+                  min="1000"
                   max={new Date().getFullYear()}
                   className="form-input w-1/2"
                   placeholder="Yıl giriniz"

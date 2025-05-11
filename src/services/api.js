@@ -8,7 +8,8 @@ const apiInstance = axios.create({
     baseURL: API_URL,
     headers: {
         'Content-Type': 'application/json'
-    }
+    },
+    timeout: 10000 // 10 saniye timeout
 });
 
 // API isteklerini logla
@@ -24,6 +25,17 @@ apiInstance.interceptors.response.use(
     },
     error => {
         console.error('API Error:', error);
+        if (error.response) {
+            // Sunucudan gelen hata yanıtı
+            console.error('Error Response:', error.response.data);
+            console.error('Error Status:', error.response.status);
+        } else if (error.request) {
+            // İstek yapıldı ama yanıt alınamadı
+            console.error('No Response Received:', error.request);
+        } else {
+            // İstek oluşturulurken hata oluştu
+            console.error('Error Message:', error.message);
+        }
         return Promise.reject(error);
     }
 );

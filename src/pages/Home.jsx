@@ -94,12 +94,12 @@ const Home = ({ showNotification }) => {
       setIsLoading(true);
       // Tüm API isteklerini paralel olarak yap
       const [booksRes, authorsRes, categoriesRes, borrowsRes, recentBooksRes, recentBorrowsRes] = await Promise.all([
-        api.books.getAll(),
-        api.authors.getAll(),
-        api.categories.getAll(),
-        api.borrows.getAll(),
-        api.books.getAll(),
-        api.borrows.getAll()
+        api.bookService.getAll().catch(err => ({ data: [] })),
+        api.authorService.getAll().catch(err => ({ data: [] })),
+        api.categoryService.getAll().catch(err => ({ data: [] })),
+        api.bookBorrowingService.getAll().catch(err => ({ data: [] })),
+        api.bookService.getAll().catch(err => ({ data: [] })),
+        api.bookBorrowingService.getAll().catch(err => ({ data: [] }))
       ]);
 
       // İstatistikleri güncelle
@@ -116,7 +116,7 @@ const Home = ({ showNotification }) => {
       setRecentBorrows(recentBorrowsRes.data.slice(-5).reverse());
     } catch (error) {
       console.error('Veri yükleme hatası:', error);
-      showNotification('Veriler yüklenirken bir hata oluştu', 'error');
+      showNotification('Veriler yüklenirken bir hata oluştu. Lütfen sayfayı yenileyin.', 'error');
     } finally {
       setIsLoading(false);
     }
@@ -256,73 +256,66 @@ const Home = ({ showNotification }) => {
         </div>
       </div>
 
-      {/* Son Eklenen Kitaplar ve Son Ödünç Kayıtları */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {/* Son Eklenen Kitaplar ve Ödünç Kayıtları */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         {/* Son Eklenen Kitaplar */}
-        <div className="bg-white rounded-lg shadow-lg border border-[#DEB887]">
-          <div className="p-4 border-b border-[#DEB887]">
-            <h2 className="text-lg font-semibold text-[#8B4513]">Son Eklenen Kitaplar</h2>
-          </div>
-          <div className="p-4">
-            {isLoading ? (
-              <p className="text-[#8B4513]">Yükleniyor...</p>
-            ) : recentBooks.length === 0 ? (
-              <p className="text-[#8B4513]">Henüz kitap eklenmemiş</p>
-            ) : (
-              <ul className="space-y-2">
-                {recentBooks.map((book) => (
-                  <li key={book.id} className="flex items-center space-x-2">
-                    <FaBook className="h-4 w-4 text-[#8B4513]" />
-                    <span className="text-[#2C1810]">{book.name}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+        <div className="bg-white rounded-lg shadow-lg p-6 border border-[#DEB887]">
+          <h3 className="text-xl font-semibold text-[#8B4513] mb-4 font-['Playfair_Display']">Son Eklenen Kitaplar</h3>
+          {isLoading ? (
+            <p className="text-[#2C1810]">Yükleniyor...</p>
+          ) : recentBooks.length > 0 ? (
+            <ul className="space-y-3">
+              {recentBooks.map((book) => (
+                <li key={book.id} className="flex items-center space-x-3 p-2 hover:bg-[#FDF5E6] rounded-md transition-colors duration-200">
+                  <FaBook className="h-5 w-5 text-[#8B4513]" />
+                  <div>
+                    <p className="font-medium text-[#2C1810]">{book.name}</p>
+                    <p className="text-sm text-[#8B4513]">{book.author?.name}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="text-[#2C1810]">Henüz kitap eklenmemiş.</p>
+          )}
         </div>
 
         {/* Son Ödünç Kayıtları */}
-        <div className="bg-white rounded-lg shadow-lg border border-[#DEB887]">
-          <div className="p-4 border-b border-[#DEB887]">
-            <h2 className="text-lg font-semibold text-[#8B4513]">Son Ödünç Kayıtları</h2>
-          </div>
-          <div className="p-4">
-            {isLoading ? (
-              <p className="text-[#8B4513]">Yükleniyor...</p>
-            ) : recentBorrows.length === 0 ? (
-              <p className="text-[#8B4513]">Henüz ödünç kaydı yok</p>
-            ) : (
-              <ul className="space-y-2">
-                {recentBorrows.map((borrow) => (
-                  <li key={borrow.id} className="flex items-center space-x-2">
-                    <FaHandHolding className="h-4 w-4 text-[#8B4513]" />
-                    <span className="text-[#2C1810]">
-                      {borrow.book?.name} - {borrow.borrowerName}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+        <div className="bg-white rounded-lg shadow-lg p-6 border border-[#DEB887]">
+          <h3 className="text-xl font-semibold text-[#8B4513] mb-4 font-['Playfair_Display']">Son Ödünç Kayıtları</h3>
+          {isLoading ? (
+            <p className="text-[#2C1810]">Yükleniyor...</p>
+          ) : recentBorrows.length > 0 ? (
+            <ul className="space-y-3">
+              {recentBorrows.map((borrow) => (
+                <li key={borrow.id} className="flex items-center space-x-3 p-2 hover:bg-[#FDF5E6] rounded-md transition-colors duration-200">
+                  <FaHandHolding className="h-5 w-5 text-[#8B4513]" />
+                  <div>
+                    <p className="font-medium text-[#2C1810]">{borrow.book?.name}</p>
+                    <p className="text-sm text-[#8B4513]">{borrow.borrowerName}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="text-[#2C1810]">Henüz ödünç kaydı bulunmuyor.</p>
+          )}
         </div>
       </div>
-      <div className="text-center text-[#8B4513]/60 text-sm mt-12 font-['Playfair_Display']">
-        <div className="flex items-center justify-center space-x-2">
-          <span>© {new Date().getFullYear()} Library App</span>
-          <span>•</span>
-          <a 
-            href="https://github.com/tunahanyasar" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex items-center space-x-1 hover:text-[#8B4513] transition-colors duration-300"
-          >
-            <FaGithub className="text-lg" />
-            <span>İletişim</span>
-          </a>
-        </div>
+
+      {/* GitHub Linki */}
+      <div className="text-center">
+        <a
+          href="https://github.com/alisimsek/Library-Management-Project"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center space-x-2 text-[#8B4513] hover:text-[#D2691E] transition-colors duration-200"
+        >
+          <FaGithub className="h-6 w-6" />
+          <span>GitHub'da Görüntüle</span>
+        </a>
       </div>
     </div>
-    
   );
 };
 
