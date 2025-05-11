@@ -12,7 +12,7 @@ Kütüphane yönetimi için modern, kullanıcı dostu bir web uygulamasıdır. R
 
 1. Projeyi klonlayın
 ```bash
-git clone <proje-repo-linkiniz>
+git clone https://github.com/tunahanyasar/library-app-frontend.git
 ```
 
 2. Frontend klasörüne gidin
