@@ -1,6 +1,6 @@
 # 📚 Library Management App | React + Vite + Tailwind
 
-Kütüphane yönetimi için modern, kullanıcı dostu bir web uygulamasıdır. React, Vite ve Tailwind CSS ile geliştirilmiş olup, Spring Boot tabanlı bir backend API ile tam entegredir.
+Kütüphane yönetimi için modern, kullanıcı dostu bir web uygulamasıdır. React, Vite ve Tailwind CSS ile geliştirilmiş olup, önceden yazılmış olan Spring Boot tabanlı bir backend API ile tam entegredir.
 
 * Bu proje, kitap, yazar, yayınevi, kategori ve ödünç alma işlemlerini yönetmek için geliştirilmiştir.
 * **React**, **Vite**, **Tailwind CSS**, **Spring Boot** ve **PostgreSQL** kullanılmıştır. Hazır olarak verilen backend projesine **React** ile frontend hazırlandı.
@@ -283,8 +283,12 @@ Bu proje, küçük ve orta ölçekli kütüphanelerin kitap, yazar, yayınevi, k
 
 ## 📚 Kaynaklar ve Referanslar
 
+- [Backend Repo](https://github.com/FurkanTsdmr/LibraryAppSpringBoot)
+
 - [React](https://react.dev/)
 - [Vite](https://vitejs.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Spring Boot](https://spring.io/projects/spring-boot)
 - [PostgreSQL](https://www.postgresql.org/)
+
+
