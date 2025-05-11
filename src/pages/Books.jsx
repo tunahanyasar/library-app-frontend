@@ -42,6 +42,25 @@ const Books = ({ showNotification }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [bookToDelete, setBookToDelete] = useState(null);
 
+  // Yayımcı ismini kısaltma fonksiyonu
+  const truncatePublisherName = (name) => {
+    if (!name) return '';
+    return name.length > 16 ? name.substring(0, 16) + '...' : name;
+  };
+
+  // Kitap ismini kısaltma fonksiyonu
+  const truncateBookName = (name) => {
+    if (!name) return '';
+    return name.length > 20 ? name.substring(0, 20) + '...' : name;
+  };
+
+  // Kategori listesini kısaltma fonksiyonu
+  const truncateCategories = (categories) => {
+    if (!categories || categories.length === 0) return '';
+    const categoryString = categories.map(cat => cat.name).join(', ');
+    return categoryString.length > 17 ? categoryString.substring(0, 17) + '...' : categoryString;
+  };
+
   // VERİ YÖNETİMİ FONKSİYONLARI
   /**
    * Kitapları API'den getirir ve state'e kaydeder
@@ -50,7 +69,7 @@ const Books = ({ showNotification }) => {
   const fetchBooks = useCallback(async () => {
     try {
       const response = await api.bookService.getAll();
-      // En son eklenen kitaplar üstte görünsün diye reverse edilir
+      // Backend'den gelen kitapları ters çevir
       setBooks(response.data.slice().reverse());
     } catch (error) {
       console.error('Kitaplar yüklenirken hata:', error);
@@ -188,19 +207,20 @@ const Books = ({ showNotification }) => {
       };
       if (currentBook) {
         // Güncelleme işlemi
-        await api.bookService.update(currentBook.id, requestData);
+        const response = await api.bookService.update(currentBook.id, requestData);
         showNotification('Kitap başarıyla güncellendi', 'success');
         setBooks(prev => {
-          const updated = prev.map(b => b.id === currentBook.id ? { ...b, ...requestData } : b);
-          const updatedBook = updated.find(b => b.id === currentBook.id);
-          const others = updated.filter(b => b.id !== currentBook.id);
-          return [updatedBook, ...others];
+          const updated = prev.map(b => b.id === currentBook.id ? response.data : b);
+          return updated.slice().reverse();
         });
       } else {
         // Ekleme işlemi
         const response = await api.bookService.create(requestData);
         showNotification('Kitap başarıyla eklendi', 'success');
-        setBooks(prev => [response.data, ...prev]);
+        setBooks(prev => {
+          const updated = [...prev, response.data];
+          return updated.slice().reverse();
+        });
       }
       // Form ve modalı sıfırla
       setFormData({ name: '', publicationYear: '', stock: '', authorId: '', publisherId: '', categoryIds: [] });
@@ -341,7 +361,7 @@ const Books = ({ showNotification }) => {
                   <div className="flex items-center">
                     <FaBook className="h-5 w-5 text-[#8B4513] mr-2" />
                     <div className="text-sm font-medium text-[#2C1810]">
-                      {book.name}
+                      {truncateBookName(book.name)}
                     </div>
                   </div>
                 </td>
@@ -355,10 +375,10 @@ const Books = ({ showNotification }) => {
                   {book.author?.name}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-[#2C1810]">
-                  {book.publisher?.name}
+                  {truncatePublisherName(book.publisher?.name)}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-[#2C1810]">
-                  {book.categories?.map(cat => cat.name).join(', ')}
+                  {truncateCategories(book.categories)}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                   <button

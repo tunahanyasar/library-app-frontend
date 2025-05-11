@@ -88,7 +88,6 @@ npm run dev
    Görsel : [Searchbar Publishers](#yayımcı-aratma)
    - Ödünç alma sayfasında hem kitap ismi ile hem de kişi ismi ile ayrı ayrı aratma yapılabilir.
    Görsel : [Searchbar Borrow](#kitap-i̇smi-ile-aratma)
-  
 
 3. **Modern UI/UX**
    - Responsive ve kullanıcı dostu arayüz.
@@ -99,10 +98,13 @@ npm run dev
    - Modal ile ekleme/düzenleme/silme işlemleri
    - Koyu ve açık renk uyumlu tasarım
 
+
 4. **Ekstra Özellikler**
    - Kitap ödünç alma ve iade işlemlerinde stok yönetimi
    - Kategori silme işlemlerinde ilişkili kitap kontrolü
    - Tüm verileri topluca silme için onay modalları
+   - Verilerin otomatik sıralanması (en son güncellenen/en son eklenen en üstte)
+   - Uzun metinlerin otomatik kısaltılması ve "..." ile gösterilmesi
 
 ---
 
