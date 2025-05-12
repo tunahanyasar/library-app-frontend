@@ -40,7 +40,7 @@ npm install
 npm run dev
 ```
 
-> **Not:** Backend (Spring Boot) servisini de başlatmalısınız. Varsayılan olarak backend `http://localhost:8080` adresinde çalışmalıdır.
+> **Not:** Backend uyglaması Render ile canlıya alınmıştır. Verilerin yüklenmesi bir kaç dakikanızı alabilir. Beklemenizi gerektirir.
 
 ---
 
