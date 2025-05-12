@@ -14,7 +14,7 @@ Kütüphane yönetimi için modern, kullanıcı dostu bir web uygulamasıdır. R
 * Books API: [ https://library-app-backend-jtd1.onrender.com/api/v1/books ] 
 * Boorrows API: [ https://library-app-backend-jtd1.onrender.com/api/v1/borrows ]
 
-**NOT:** İsteği gönderdikten sonra verilerin gelmesi birkaç dakika sürebilir. Render, uzun süre istek almadığında uyku moduna geçmektedir.
+> **NOT:** İsteği gönderdikten sonra verilerin gelmesi birkaç dakika sürebilir. Render, uzun süre istek almadığında uyku moduna geçmektedir.
 
 ---
 
