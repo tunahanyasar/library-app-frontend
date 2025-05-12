@@ -8,7 +8,13 @@ Kütüphane yönetimi için modern, kullanıcı dostu bir web uygulamasıdır. R
 
 * Projenin Canlı Linki : [ https://library-app-frontend-omega.vercel.app/ ]
 * Backend : [ https://library-app-backend-jtd1.onrender.com ]
-* Backend Books : [ https://library-app-backend-jtd1.onrender.com/api/v1/books ] 
+* Categories API: [ https://library-app-backend-jtd1.onrender.com/api/v1/categories ] 
+* Publishers API: [ https://library-app-backend-jtd1.onrender.com/api/v1/publishers ] 
+* Authors API: [ https://library-app-backend-jtd1.onrender.com/api/v1/authors ] 
+* Books API: [ https://library-app-backend-jtd1.onrender.com/api/v1/books ] 
+* Boorrows API: [ https://library-app-backend-jtd1.onrender.com/api/v1/borrows ]
+
+**NOT:** İsteği gönderdikten sonra verilerin gelmesi birkaç dakika sürebilir. Render, uzun süre istek almadığında uyku moduna geçmektedir.
 
 ---
 
