@@ -7,6 +7,8 @@ Kütüphane yönetimi için modern, kullanıcı dostu bir web uygulamasıdır. R
 * Modern ve responsive bir arayüze sahiptir.
 
 * Projenin Canlı Linki : [ https://library-app-frontend-omega.vercel.app/ ]
+* Backend : [ https://library-app-backend-jtd1.onrender.com ]
+* Backend Books : [ https://library-app-backend-jtd1.onrender.com/api/v1/books ] 
 
 ---
 
