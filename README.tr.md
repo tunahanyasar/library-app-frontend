@@ -16,11 +16,11 @@ Modern, kullanıcı dostu bir kütüphane yönetim web uygulamasıdır. React, V
 
 - **Frontend:** [https://library-app-frontend-omega.vercel.app/](https://library-app-frontend-omega.vercel.app/)
 - **Backend:** [https://library-app-backend-jtd1.onrender.com](https://library-app-backend-jtd1.onrender.com)
-- **Kategoriler API:** [https://library-app-backend-jtd1.onrender.com/api/v1/categories](https://library-app-backend-jtd1.onrender.com/api/v1/categories)
-- **Yayınevleri API:** [https://library-app-backend-jtd1.onrender.com/api/v1/publishers](https://library-app-backend-jtd1.onrender.com/api/v1/publishers)
-- **Yazarlar API:** [https://library-app-backend-jtd1.onrender.com/api/v1/authors](https://library-app-backend-jtd1.onrender.com/api/v1/authors)
-- **Kitaplar API:** [https://library-app-backend-jtd1.onrender.com/api/v1/books](https://library-app-backend-jtd1.onrender.com/api/v1/books)
-- **Ödünçler API:** [https://library-app-backend-jtd1.onrender.com/api/v1/borrows](https://library-app-backend-jtd1.onrender.com/api/v1/borrows)
+- **Kategoriler API:** [https://library-app-backend-w6qr.onrender.com/api/v1/categories](https://library-app-backend-w6qr.onrender.com/api/v1/categories)
+- **Yayınevleri API:** [https://library-app-backend-w6qr.onrender.com/api/v1/publishers](https://library-app-backend-w6qr.onrender.com/api/v1/publishers)
+- **Yazarlar API:** [https://library-app-backend-w6qr.onrender.com/api/v1/authors](https://library-app-backend-w6qr.onrender.com/api/v1/authors)
+- **Kitaplar API:** [https://library-app-backend-w6qr.onrender.com/api/v1/books](https://library-app-backend-w6qr.onrender.com/api/v1/books)
+- **Ödünçler API:** [https://library-app-backend-w6qr.onrender.com/api/v1/borrows](https://library-app-backend-w6qr.onrender.com/api/v1/borrows)
 
 > **Not:** Backend Render üzerinde barındırılmaktadır. Uzun süre istek yapılmazsa uyku moduna geçer ve ilk istekte verilerin gelmesi birkaç dakika sürebilir.
 
@@ -47,6 +47,8 @@ Modern, kullanıcı dostu bir kütüphane yönetim web uygulamasıdır. React, V
 
 > **Not:** Backend uygulaması Render üzerinde barındırılmaktadır. Verilerin yüklenmesi birkaç dakika sürebilir. 
 
+
+
 ---
 ## 🎮 Nasıl Kullanılır?
 
@@ -63,7 +65,7 @@ Modern, kullanıcı dostu bir kütüphane yönetim web uygulamasıdır. React, V
 3. **Ödünç Alma:**
    - "Ödünç Alma" sayfasında ödünç alınacak kitabı ve kullanıcıyı seçin.
    - Ödünç alma ve iade işlemlerini yönetin.
-
+> **Not:** Bu uygulamada verilerin yedeği güvenli bir şekilde saklanmaktadır. Dilediğiniz gibi veri ekleyebilir, silebilir veya güncelleyebilirsiniz. Tüm değişiklikler gerektiğinde geri alınabilir; bu nedenle veriler üzerinde özgürce işlem yapabilirsiniz.
 ---
 ## 📜 Proje Yapısı
 

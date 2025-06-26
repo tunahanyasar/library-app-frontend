@@ -44,7 +44,16 @@ const Categories = ({ showNotification }) => {
       // En son eklenen kategoriler üstte görünsün diye reverse edilir
       setCategories(response.data.slice().reverse());
     } catch (error) {
-      showNotification(`Kategoriler yüklenirken bir hata oluştu: ${error.message}`, 'error');
+      if (
+        error.code === 'ECONNABORTED' ||
+        (error.message && (error.message.includes('timeout') || error.message.includes('Network Error')))
+      ) {
+        showNotification('HATA: Veriler veritabanından çekiliyor. Lütfen bekleyiniz...', 'error');
+      } else if (error.response) {
+        showNotification(`İşlem sırasında bir hata oluştu: ${error.response.data.message}`, 'error');
+      } else {
+        showNotification('Bir hata oluştu', 'error');
+      }
     }
   }, [showNotification]);
 
@@ -120,8 +129,16 @@ const Categories = ({ showNotification }) => {
       setCurrentCategory(null);
       setIsModalOpen(false);
     } catch (error) {
-      // Hata durumunda bildirim göster
-      showNotification(`İşlem sırasında bir hata oluştu: ${error.message}`, 'error');
+      if (
+        error.code === 'ECONNABORTED' ||
+        (error.message && (error.message.includes('timeout') || error.message.includes('Network Error')))
+      ) {
+        showNotification('HATA: Veriler veritabanından çekiliyor. Lütfen bekleyiniz...', 'error');
+      } else if (error.response) {
+        showNotification(`İşlem sırasında bir hata oluştu: ${error.response.data.message}`, 'error');
+      } else {
+        showNotification('Bir hata oluştu', 'error');
+      }
     }
   };
 

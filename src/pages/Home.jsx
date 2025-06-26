@@ -115,8 +115,16 @@ const Home = ({ showNotification }) => {
       // Son 5 ödünç kaydını al
       setRecentBorrows(recentBorrowsRes.data.slice(-5).reverse());
     } catch (error) {
-      console.error('Veri yükleme hatası:', error);
-      showNotification('Veriler yüklenirken bir hata oluştu. Lütfen sayfayı yenileyin.', 'error');
+      if (
+        error.code === 'ECONNABORTED' ||
+        (error.message && (error.message.includes('timeout') || error.message.includes('Network Error')))
+      ) {
+        showNotification('HATA: Veriler veritabanından çekiliyor. Lütfen bekleyiniz...', 'error');
+      } else if (error.response) {
+        showNotification(`...`, 'error');
+      } else {
+        showNotification('Bir hata oluştu', 'error');
+      }
     } finally {
       setIsLoading(false);
     }

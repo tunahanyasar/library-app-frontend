@@ -44,8 +44,12 @@ const Authors = ({ showNotification }) => {
       // En son eklenen yazarlar üstte görünsün diye reverse edilir
       setAuthors(response.data.slice().reverse());
     } catch (error) {
-      console.error('Yazarlar yüklenirken hata:', error);
-      if (error.response) {
+      if (
+        error.code === 'ECONNABORTED' ||
+        (error.message && (error.message.includes('timeout') || error.message.includes('Network Error')))
+      ) {
+        showNotification('HATA: Veriler veritabanından çekiliyor. Lütfen bekleyiniz...', 'error');
+      } else if (error.response) {
         showNotification(`Yazarlar yüklenirken bir hata oluştu: ${error.response.data.message || error.message}`, 'error');
       } else {
         showNotification('Yazarlar yüklenirken bir hata oluştu', 'error');
@@ -126,7 +130,12 @@ const Authors = ({ showNotification }) => {
       setIsModalOpen(false);
     } catch (error) {
       console.error('İşlem hatası:', error);
-      if (error.response) {
+      if (
+        error.code === 'ECONNABORTED' ||
+        (error.message && (error.message.includes('timeout') || error.message.includes('Network Error')))
+      ) {
+        showNotification('HATA: Veriler veritabanından çekiliyor. Lütfen bekleyiniz...', 'error');
+      } else if (error.response) {
         showNotification(`İşlem sırasında bir hata oluştu: ${error.response.data.message || error.message}`, 'error');
       } else {
         showNotification('İşlem sırasında bir hata oluştu', 'error');
@@ -148,7 +157,12 @@ const Authors = ({ showNotification }) => {
       setAuthorToDelete(null);
     } catch (error) {
       console.error('Silme hatası:', error);
-      if (error.response) {
+      if (
+        error.code === 'ECONNABORTED' ||
+        (error.message && (error.message.includes('timeout') || error.message.includes('Network Error')))
+      ) {
+        showNotification('HATA: Veriler veritabanından çekiliyor. Lütfen bekleyiniz...', 'error');
+      } else if (error.response) {
         showNotification(`Silme işlemi sırasında bir hata oluştu: ${error.response.data.message || error.message}`, 'error');
       } else {
         showNotification('Silme işlemi sırasında bir hata oluştu', 'error');

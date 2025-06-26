@@ -72,8 +72,12 @@ const Books = ({ showNotification }) => {
       // Backend'den gelen kitapları ters çevir
       setBooks(response.data.slice().reverse());
     } catch (error) {
-      console.error('Kitaplar yüklenirken hata:', error);
-      if (error.response) {
+      if (
+        error.code === 'ECONNABORTED' ||
+        (error.message && (error.message.includes('timeout') || error.message.includes('Network Error')))
+      ) {
+        showNotification('HATA: Veriler veritabanından çekiliyor. Lütfen bekleyiniz...', 'error');
+      } else if (error.response) {
         showNotification(`Kitaplar yüklenirken bir hata oluştu: ${error.response.data.message || error.message}`, 'error');
       } else {
         showNotification('Kitaplar yüklenirken bir hata oluştu', 'error');
@@ -90,8 +94,12 @@ const Books = ({ showNotification }) => {
       const response = await api.publisherService.getAll();
       setPublishers(response.data);
     } catch (error) {
-      console.error('Yayımcılar yüklenirken hata:', error);
-      if (error.response) {
+      if (
+        error.code === 'ECONNABORTED' ||
+        (error.message && (error.message.includes('timeout') || error.message.includes('Network Error')))
+      ) {
+        showNotification('HATA: Veriler veritabanından çekiliyor. Lütfen bekleyiniz...', 'error');
+      } else if (error.response) {
         showNotification(`Yayımcılar yüklenirken bir hata oluştu: ${error.response.data.message || error.message}`, 'error');
       } else {
         showNotification('Yayımcılar yüklenirken bir hata oluştu', 'error');
@@ -108,8 +116,12 @@ const Books = ({ showNotification }) => {
       const response = await api.authorService.getAll();
       setAuthors(response.data);
     } catch (error) {
-      console.error('Yazarlar yüklenirken hata:', error);
-      if (error.response) {
+      if (
+        error.code === 'ECONNABORTED' ||
+        (error.message && (error.message.includes('timeout') || error.message.includes('Network Error')))
+      ) {
+        showNotification('HATA: Veriler veritabanından çekiliyor. Lütfen bekleyiniz...', 'error');
+      } else if (error.response) {
         showNotification(`Yazarlar yüklenirken bir hata oluştu: ${error.response.data.message || error.message}`, 'error');
       } else {
         showNotification('Yazarlar yüklenirken bir hata oluştu', 'error');
@@ -126,8 +138,12 @@ const Books = ({ showNotification }) => {
       const response = await api.categoryService.getAll();
       setCategories(response.data);
     } catch (error) {
-      console.error('Kategoriler yüklenirken hata:', error);
-      if (error.response) {
+      if (
+        error.code === 'ECONNABORTED' ||
+        (error.message && (error.message.includes('timeout') || error.message.includes('Network Error')))
+      ) {
+        showNotification('HATA: Veriler veritabanından çekiliyor. Lütfen bekleyiniz...', 'error');
+      } else if (error.response) {
         showNotification(`Kategoriler yüklenirken bir hata oluştu: ${error.response.data.message || error.message}`, 'error');
       } else {
         showNotification('Kategoriler yüklenirken bir hata oluştu', 'error');
@@ -228,7 +244,12 @@ const Books = ({ showNotification }) => {
       setIsModalOpen(false);
     } catch (error) {
       console.error('İşlem hatası:', error);
-      if (error.response) {
+      if (
+        error.code === 'ECONNABORTED' ||
+        (error.message && (error.message.includes('timeout') || error.message.includes('Network Error')))
+      ) {
+        showNotification('HATA: Veriler veritabanından çekiliyor. Lütfen bekleyiniz...', 'error');
+      } else if (error.response) {
         showNotification(`İşlem sırasında bir hata oluştu: ${error.response.data.message || error.message}`, 'error');
       } else {
         showNotification('İşlem sırasında bir hata oluştu', 'error');
@@ -252,7 +273,12 @@ const Books = ({ showNotification }) => {
       setBookToDelete(null);
     } catch (error) {
       console.error('Silme hatası:', error);
-      if (error.response) {
+      if (
+        error.code === 'ECONNABORTED' ||
+        (error.message && (error.message.includes('timeout') || error.message.includes('Network Error')))
+      ) {
+        showNotification('HATA: Veriler veritabanından çekiliyor. Lütfen bekleyiniz...', 'error');
+      } else if (error.response) {
         showNotification(`Silme işlemi sırasında bir hata oluştu: ${error.response.data.message || error.message}`, 'error');
       } else {
         showNotification('Silme işlemi sırasında bir hata oluştu', 'error');

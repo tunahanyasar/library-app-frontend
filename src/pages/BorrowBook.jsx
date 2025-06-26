@@ -56,8 +56,16 @@ const BorrowBook = ({ showNotification }) => {
       setBorrows(response.data.slice().reverse());
       setFilteredBorrows(response.data.slice().reverse());
     } catch (error) {
-      console.error('Ödünç kayıtları yüklenirken hata:', error);
-      showNotification('Ödünç kayıtları yüklenirken bir hata oluştu', 'error');
+      if (
+        error.code === 'ECONNABORTED' ||
+        (error.message && (error.message.includes('timeout') || error.message.includes('Network Error')))
+      ) {
+        showNotification('HATA: Veriler veritabanından çekiliyor. Lütfen bekleyiniz...', 'error');
+      } else if (error.response) {
+        showNotification(`Silme işlemi sırasında bir hata oluştu: ${error.response.data.message || error.message}`, 'error');
+      } else {
+        showNotification('Ödünç kayıtları yüklenirken bir hata oluştu', 'error');
+      }
     } finally {
       setIsLoading(false);
     }
@@ -72,8 +80,16 @@ const BorrowBook = ({ showNotification }) => {
       const response = await api.bookService.getAll();
       setBooks(response.data);
     } catch (error) {
-      console.error('Kitaplar yüklenirken hata:', error);
-      showNotification('Kitaplar yüklenirken bir hata oluştu', 'error');
+      if (
+        error.code === 'ECONNABORTED' ||
+        (error.message && (error.message.includes('timeout') || error.message.includes('Network Error')))
+      ) {
+        showNotification('HATA: Veriler veritabanından çekiliyor. Lütfen bekleyiniz...', 'error');
+      } else if (error.response) {
+        showNotification(`Kitaplar yüklenirken bir hata oluştu: ${error.response.data.message || error.message}`, 'error');
+      } else {
+        showNotification('Kitaplar yüklenirken bir hata oluştu', 'error');
+      }
     }
   }, [showNotification]);
 
@@ -263,10 +279,16 @@ const BorrowBook = ({ showNotification }) => {
         }
       }
     } catch (error) {
-      // Hata durumunda konsola detaylı hata bilgisi yazdır
-      console.error('Genel işlem hatası:', error);
-      // Kullanıcıya genel hata bildirimi göster
-      showNotification('Beklenmeyen bir hata oluştu', 'error');
+      if (
+        error.code === 'ECONNABORTED' ||
+        (error.message && (error.message.includes('timeout') || error.message.includes('Network Error')))
+      ) {
+        showNotification('HATA: Veriler veritabanından çekiliyor. Lütfen bekleyiniz...', 'error');
+      } else if (error.response) {
+        showNotification(`Genel işlem hatası: ${error.response.data.message || error.message}`, 'error');
+      } else {
+        showNotification('Beklenmeyen bir hata oluştu', 'error');
+      }
     }
   };
 
@@ -283,8 +305,12 @@ const BorrowBook = ({ showNotification }) => {
       setIsDeleteModalOpen(false);
       setRecordToDelete(null);
     } catch (error) {
-      console.error('Silme hatası:', error);
-      if (error.response) {
+      if (
+        error.code === 'ECONNABORTED' ||
+        (error.message && (error.message.includes('timeout') || error.message.includes('Network Error')))
+      ) {
+        showNotification('HATA: Veriler veritabanından çekiliyor. Lütfen bekleyiniz...', 'error');
+      } else if (error.response) {
         showNotification(`Silme işlemi sırasında bir hata oluştu: ${error.response.data.message || error.message}`, 'error');
       } else {
         showNotification('Silme işlemi sırasında bir hata oluştu', 'error');
@@ -312,8 +338,16 @@ const BorrowBook = ({ showNotification }) => {
       });
       setIsModalOpen(true);
     } catch (error) {
-      console.error('Düzenleme hatası:', error);
-      showNotification('Ödünç kaydı detayları yüklenirken bir hata oluştu', 'error');
+      if (
+        error.code === 'ECONNABORTED' ||
+        (error.message && (error.message.includes('timeout') || error.message.includes('Network Error')))
+      ) {
+        showNotification('HATA: Veriler veritabanından çekiliyor. Lütfen bekleyiniz...', 'error');
+      } else if (error.response) {
+        showNotification(`Düzenleme hatası: ${error.response.data.message || error.message}`, 'error');
+      } else {
+        showNotification('Ödünç kaydı detayları yüklenirken bir hata oluştu', 'error');
+      }
     }
   };
 

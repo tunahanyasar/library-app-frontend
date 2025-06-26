@@ -18,12 +18,12 @@ A modern, user-friendly web application for library management. Developed with R
 ## 🌐 Live Demo
 
 * Projenin Canlı Linki : [ https://library-app-frontend-omega.vercel.app/ ]
-* Backend : [ https://library-app-backend-jtd1.onrender.com ]
-* Categories API: [ https://library-app-backend-jtd1.onrender.com/api/v1/categories ] 
-* Publishers API: [ https://library-app-backend-jtd1.onrender.com/api/v1/publishers ] 
-* Authors API: [ https://library-app-backend-jtd1.onrender.com/api/v1/authors ] 
-* Books API: [ https://library-app-backend-jtd1.onrender.com/api/v1/books ] 
-* Boorrows API: [ https://library-app-backend-jtd1.onrender.com/api/v1/borrows ]
+* Backend : [ https://library-app-backend-w6qr.onrender.com ]
+* Categories API: [ https://library-app-backend-w6qr.onrender.com/api/v1/categories ] 
+* Publishers API: [ https://library-app-backend-w6qr.onrender.com/api/v1/publishers ] 
+* Authors API: [ https://library-app-backend-w6qr.onrender.com/api/v1/authors ] 
+* Books API: [ https://library-app-backend-w6qr.onrender.com/api/v1/books ] 
+* Boorrows API: [ https://library-app-backend-w6qr.onrender.com/api/v1/borrows ]
 
 > **Note:** After sending a request, it may take a few minutes for the data to load. Render puts the backend to sleep when there is no request for a while.
 
@@ -69,7 +69,7 @@ npm run dev
 3. **Borrow Book:**
    - On the "Borrow Book" page, select the book and user to borrow.
    - Manage borrowing and return operations.
-
+> **Note:** The data in this application is securely backed up. You can freely add, delete, or update any data as you wish. All changes can be reverted if needed, so feel free to make any modifications you like..
 
 ---
 
