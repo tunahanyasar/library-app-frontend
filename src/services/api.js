@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// Backend URL'yi environment variable'dan al, yoksa fallback URL'yi kullan
-const API_URL = import.meta.env.VITE_API_URL || 'https://library-app-backend-jtd1.onrender.com';
+// Backend URL'yi environment variable'dan al, yoksa yeni Render URL'sini kullan
+const API_URL = import.meta.env.VITE_API_URL || 'https://library-app-backend-w6qr.onrender.com/';
 
 // Axios instance oluştur
 const apiInstance = axios.create({
