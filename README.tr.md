@@ -15,7 +15,7 @@ Modern, kullanıcı dostu bir kütüphane yönetim web uygulamasıdır. React, V
 ## 🌐 Canlı Demo
 
 - **Frontend:** [https://library-app-frontend-omega.vercel.app/](https://library-app-frontend-omega.vercel.app/)
-- **Backend:** [https://library-app-backend-jtd1.onrender.com](https://library-app-backend-jtd1.onrender.com)
+- **Backend:** [https://library-app-backend-jtd1.onrender.com](https://library-app-backend-w6qr.onrender.com)
 - **Kategoriler API:** [https://library-app-backend-w6qr.onrender.com/api/v1/categories](https://library-app-backend-w6qr.onrender.com/api/v1/categories)
 - **Yayınevleri API:** [https://library-app-backend-w6qr.onrender.com/api/v1/publishers](https://library-app-backend-w6qr.onrender.com/api/v1/publishers)
 - **Yazarlar API:** [https://library-app-backend-w6qr.onrender.com/api/v1/authors](https://library-app-backend-w6qr.onrender.com/api/v1/authors)
