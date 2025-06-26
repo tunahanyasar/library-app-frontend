@@ -6,7 +6,7 @@
 
 Modern, kullanıcı dostu bir kütüphane yönetim web uygulamasıdır. React, Vite ve Tailwind CSS ile geliştirilmiş olup, Spring Boot tabanlı bir backend API ile tam entegredir.
 
-* Bu proje; kitap, yazar, yayınevi, kategori ve ödünç alma işlemlerini yönetmek için tasarlanmıştır.
+* Bu proje, Patika Frontend Bootcamp'i için oluşturulan **Hafta-15 / 3. Final Ödevi | Kütüphane Yönetim Uygulaması** projesidir.
 * **React**, **Vite**, **Tailwind CSS**, **Spring Boot** ve **PostgreSQL** kullanılmıştır. Frontend, verilen backend projesi için React ile hazırlanmıştır.
 * Modern ve responsive bir arayüze sahiptir.
 

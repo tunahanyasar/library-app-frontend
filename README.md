@@ -9,7 +9,7 @@
 
 A modern, user-friendly web application for library management. Developed with React, Vite, and Tailwind CSS, fully integrated with a Spring Boot-based backend API.
 
-* This project is designed to manage books, authors, publishers, categories, and borrowing operations.
+* This project is the **Week-15 / 3rd Final Assignment | Library Management Application** created for the Patika Frontend Bootcamp.
 * **React**, **Vite**, **Tailwind CSS**, **Spring Boot**, and **PostgreSQL** are used. The frontend was built with React for the provided backend project.
 * Features a modern and responsive interface.
 
