@@ -1,42 +1,46 @@
 # 📚 Library Management App | React + Vite + Tailwind
 
-Kütüphane yönetimi için modern, kullanıcı dostu bir web uygulamasıdır. React, Vite ve Tailwind CSS ile geliştirilmiş olup, Spring Boot tabanlı bir backend API ile tam entegredir.
+[🇹🇷 Click here for the Turkish README](./README.tr.md)
 
-* Bu proje, kitap, yazar, yayınevi, kategori ve ödünç alma işlemlerini yönetmek için geliştirilmiştir.
-* **React**, **Vite**, **Tailwind CSS**, **Spring Boot** ve **PostgreSQL** kullanılmıştır. Hazır olarak verilen backend projesine **React** ile frontend hazırlandı.
-* Modern ve responsive bir arayüze sahiptir.
+*Created: May 2025*
+
+A modern, user-friendly web application for library management. Developed with React, Vite, and Tailwind CSS, fully integrated with a Spring Boot-based backend API.
+
+* This project is designed to manage books, authors, publishers, categories, and borrowing operations.
+* **React**, **Vite**, **Tailwind CSS**, **Spring Boot**, and **PostgreSQL** are used. The frontend was built with React for the provided backend project.
+* Features a modern and responsive interface.
 
 ---
 
-## :computer: Kurulum ve Kullanım
+## :computer: Installation & Usage
 
-1. Projeyi klonlayın
+1. Clone the project
 ```bash
 git clone https://github.com/tunahanyasar/library-app-frontend.git
 ```
 
-2. Frontend klasörüne gidin
+2. Go to the frontend folder
 ```bash
-cd react-frontend
+cd library-app-frontend
 ```
 
-3. Bağımlılıkları yükleyin
+3. Install dependencies
 ```bash
 npm install
 ```
 
-4. Geliştirme sunucusunu başlatın
+4. Start the development server
 ```bash
 npm run dev
 ```
 
-> **Not:** Backend (Spring Boot) servisini de başlatmalısınız. Varsayılan olarak backend `http://localhost:8080` adresinde çalışmalıdır.
+> **Note:** You must also start the backend (Spring Boot) service. By default, the backend should run at `http://localhost:8080`.
 
 ---
 
-## 📜 Proje Yapısı
+## 📜 Project Structure
 
-:open_file_folder: **Klasörler;**
+:open_file_folder: **Folders;**
 * *src/*
   * *components/*
     * *Modal.jsx*
@@ -60,59 +64,58 @@ npm run dev
 * *tailwind.config.js*
 * *vite.config.js*
 
-1. ***src/components/***: Ortak kullanılan arayüz bileşenleri (modal, form, header, layout).
-2. ***src/pages/***: Her bir ana sayfa için React bileşenleri (kitaplar, yazarlar, yayınevleri, kategoriler, ödünç alma, ana sayfa).
-3. ***src/services/api.js***: Backend API ile iletişim fonksiyonları.
-4. ***index.css*** ve ***tailwind.config.js***: Tüm stil ve tema ayarları.
+1. ***src/components/***: Shared UI components (modal, form, header, layout).
+2. ***src/pages/***: React components for each main page (books, authors, publishers, categories, borrow, home).
+3. ***src/services/api.js***: Functions for backend API communication.
+4. ***index.css*** and ***tailwind.config.js***: All style and theme settings.
 
 ---
 
-## :star2: Mevcut Özellikler
+## :star2: Features
 
-1. **CRUD İşlemleri**
-   - Kitap ekleme, düzenleme, silme, listeleme. Görsel: [Add Book](#kitap-ekleme)
-   - Yazar ekleme, düzenleme, silme, listeleme. Görsel: [Add Author](#yazar-ekleme)
-   - Yayınevi ekleme, düzenleme, silme, listeleme. Görsel: [Add Publisher](#yayımcı-ekleme)
-   - Kategori ekleme, düzenleme, silme, listeleme. Görsel: [Add Category](#kategori-ekleme)
-   - Kitap ödünç alma ve iade işlemleri
-   Görsel: [Add Borrow](#ödünç-alma-ekleme)
-   **NOT :** 
-        * Veri tabanında kullanılan kategoriler silinemez.
-        * Yazar veya Yayımcı silinirse bağlı olduğu veriler *(Kitaplar, Ödnüç Alma)* de silinir.
-        * Silinen veriler geri getirilemez. Tamamen silinir. 
+1. **CRUD Operations**
+   - Add, edit, delete, and list books. Screenshot: [Add Book](#add-book)
+   - Add, edit, delete, and list authors. Screenshot: [Add Author](#add-author)
+   - Add, edit, delete, and list publishers. Screenshot: [Add Publisher](#add-publisher)
+   - Add, edit, delete, and list categories. Screenshot: [Add Category](#add-category)
+   - Book borrowing and return operations
+   Screenshot: [Add Borrow](#add-borrow)
+   **NOTE:**
+        * Categories used in the database cannot be deleted.
+        * If an author or publisher is deleted, all related data *(Books, Borrow Records)* will also be deleted.
+        * Deleted data cannot be recovered. They are permanently removed.
 
-2. **Arama ve Filtreleme**
-   - Kitap, yazar, yayınevi ve kategoriye göre arama
-   - Çoklu kategori seçimi
-   - Anlık filtreleme
-   Görsel : [Searchbar Publishers](#yayımcı-aratma)
-   - Ödünç alma sayfasında hem kitap ismi ile hem de kişi ismi ile ayrı ayrı aratma yapılabilir.
-   Görsel : [Searchbar Borrow](#kitap-i̇smi-ile-aratma)
+2. **Search & Filtering**
+   - Search by book, author, publisher, and category
+   - Multi-category selection
+   - Instant filtering
+   Screenshot: [Searchbar Publishers](#search-publisher)
+   - On the borrow page, you can search separately by book name and by person name.
+   Screenshot: [Searchbar Borrow](#search-by-book-name)
 
 3. **Modern UI/UX**
-   - Responsive ve kullanıcı dostu arayüz.
-   Görsel: [Pages](#paperclip-sayfa-çıktıları--fullpages)
-   - Temiz ve düzenli kod yapısı
-   - Bildirim sistemi (başarı/hata uyarıları, yapılan işlemler alert ile kullanıcıya gösterilir)
-   Görsel: [Alerts](#paperclip-sayfa-çıktıları--alerts)
-   - Modal ile ekleme/düzenleme/silme işlemleri
-   - Koyu ve açık renk uyumlu tasarım
+   - Responsive and user-friendly interface.
+   Screenshot: [Pages](#paperclip-page-screenshots--fullpages)
+   - Clean and organized code structure
+   - Notification system (success/error alerts, all actions are shown to the user via alerts)
+   Screenshot: [Alerts](#paperclip-page-screenshots--alerts)
+   - Add/edit/delete operations via modal
+   - Dark and light mode compatible design
 
-
-4. **Ekstra Özellikler**
-   - Kitap ödünç alma ve iade işlemlerinde stok yönetimi
-   - Kategori silme işlemlerinde ilişkili kitap kontrolü
-   - Tüm verileri topluca silme için onay modalları
-   - Verilerin otomatik sıralanması (en son güncellenen/en son eklenen en üstte)
-   - Uzun metinlerin otomatik kısaltılması ve "..." ile gösterilmesi
+4. **Extra Features**
+   - Stock management in book borrowing and return operations
+   - Related book check when deleting categories
+   - Confirmation modals for bulk data deletion
+   - Automatic sorting of data (most recently updated/added at the top)
+   - Automatic truncation of long texts with "..."
 
 ---
 
-## 💡 Kullanılan Yapılar | Kazanımlar
+## 💡 Technologies & Key Learnings
 
 **React:**
-* Component Mimarisi
-* Props Sistemi
+* Component Architecture
+* Props System
 * React Hooks (useState, useEffect, useCallback)
 * Event Handling
 * Conditional Rendering
@@ -122,167 +125,172 @@ npm run dev
 * Utility-first CSS
 * Responsive Design
 * Custom Theme
-* Modern ve hızlı stil yönetimi
+* Modern and fast style management
 
 **JavaScript:**
-* ES6+ Özellikleri
-* Array Metodları
-* API Entegrasyonu (Axios)
+* ES6+ Features
+* Array Methods
+* API Integration (Axios)
 * State Management
-* Asenkron Programlama
+* Asynchronous Programming
 
 **Backend (Spring Boot):**
 * RESTful API
-* PostgreSQL ile veri yönetimi
-* CORS ve güvenlik ayarları
+* Data management with PostgreSQL
+* CORS and security settings
 
 ---
 
-# :paperclip: Sayfa Çıktıları : Fullpages
+# :paperclip: Page Screenshots : Fullpages
 
-### Ana Sayfa
+### Home Page
 ![HomePage](./src/assets/screenshots/fullpages/homepage.png)
 
-### Yayımcılar Sayfası
+### Publishers Page
 ![Publishers Page](./src/assets/screenshots/fullpages/publishers.png)
 
-### Kategoriler Sayfası
+### Categories Page
 ![Categories Page](./src/assets/screenshots/fullpages/categories.png)
 
-### Kitaplar Sayfası
+### Books Page
 ![Books Page](./src/assets/screenshots/fullpages/books.png)
 
-### Yazarlar Sayfası
+### Authors Page
 ![Authors Page](./src/assets/screenshots/fullpages/authors.png)
 
-### Ödünç Alma Sayfası
+### Borrow Page
 ![Borrow Page](./src/assets/screenshots/fullpages/borrows.png)
 
-# :paperclip: Sayfa Çıktıları : CRUD
+# :paperclip: Page Screenshots : CRUD
 
-### Kitap Ekleme
+### Add Book
 ![Add Book](./src/assets/screenshots/addings/add_books.png)
 
-### Yazar Ekleme
+### Add Author
 ![Add Author](./src/assets/screenshots/addings/add_author.png)
 
-### Kategori Ekleme
+### Add Category
 ![Add Category](./src/assets/screenshots/addings/add_category.png)
 
-### Yayımcı Ekleme
+### Add Publisher
 ![Add Publisher](./src/assets/screenshots/addings/add_publisher.png)
 
-### Ödünç Alma Ekleme
+### Add Borrow
 ![Add Borrow](./src/assets/screenshots/addings/add_borrow.png)
 
-# :paperclip: Sayfa Çıktıları : Alerts
+# :paperclip: Page Screenshots : Alerts
 
-### Kategori Silme Alert
+### Category Delete Alert
 ![Category Alert](./src/assets/screenshots/alerts/alert1.png)
 
-### Kategori Ekleme Alert 
+### Category Add Alert
 ![Category Alert1](./src/assets/screenshots/alerts/alert2.png)
 
-### Silme İşlemi Yazar Modal
+### Author Delete Modal
 ![Author Delete Modal](./src/assets/screenshots/alerts/alert3.png)
 
-### Silme İşlemi Yayımcı Modal
+### Publisher Delete Modal
 ![Publisher Delete Modal](./src/assets/screenshots/alerts/alert4.png)
 
-# :paperclip: Sayfa Çıktıları : Searchbar
-### Yayımcı Aratma
+# :paperclip: Page Screenshots : Searchbar
+### Search Publisher
 ![Search Publisher](./src/assets/screenshots/searchbar/searchbar1.png)
 
-### Kitap İsmi ile Aratma
+### Search by Book Name
 ![Search Borrow1](./src/assets/screenshots/searchbar/searchbar2.png)
 
-### Kişi İsmi ile Aratma
+### Search by Person Name
 ![Search Borrow2](./src/assets/screenshots/searchbar/searchbar3.png)
 
 ---
 
-## 🎮 Nasıl Kullanılır?
+## 🎮 How to Use?
 
-1. **Ana Sayfa:**
-   - Kütüphanedeki tüm kitapları, yazarları, yayınevlerini ve kategorileri görüntüleyin.
-   - Arama kutularını kullanarak filtreleme yapın.
-   - Herhangi bir kaydı düzenleyin veya silin.
+1. **Home Page:**
+   - View all books, authors, publishers, and categories in the library.
+   - Use the search boxes to filter.
+   - Edit or delete any record.
 
-2. **Kitap Ekleme/Düzenleme:**
-   - "Yeni Kitap Ekle" butonuna tıklayın.
-   - Açılan modalda kitap bilgilerini girin ve kaydedin.
-   - Kitapları düzenlemek için ilgili satırdaki düzenle ikonuna tıklayın.
+2. **Add/Edit Book:**
+   - Click the "Add New Book" button.
+   - Enter book details in the modal and save.
+   - To edit a book, click the edit icon in the relevant row.
 
-3. **Ödünç Alma:**
-   - "Kitap Alma" sayfasında ödünç alınacak kitabı ve kullanıcıyı seçin.
-   - Ödünç alma ve iade işlemlerini yönetin.
-
----
-
-## 🔍 Detaylı Açıklama
-
-### Proje Amacı ve Kapsamı
-
-Bu proje, küçük ve orta ölçekli kütüphanelerin kitap, yazar, yayınevi, kategori ve ödünç alma işlemlerini kolayca yönetebilmesi için geliştirilmiştir. Modern arayüzü ve güçlü backend entegrasyonu ile hızlı ve güvenli bir deneyim sunar.
-
-### Teknik Detaylar
-
-#### Books.jsx - Kitaplar Sayfası Bileşeni
-
-- Kitapların listelenmesi, eklenmesi, düzenlenmesi ve silinmesi
-- Çoklu kategori seçimi ve filtreleme
-- Yazar ve yayınevi ile ilişkilendirme
-- Stok yönetimi ve ödünç alma entegrasyonu
-
-#### BorrowBook.jsx - Ödünç Alma Bileşeni
-
-- Kitap ödünç alma ve iade işlemleri
-- Stok güncelleme
-- Kullanıcıya özel bildirimler
-
-#### Bildirim Sistemi
-- Başarı ve hata durumlarında headerin altında uyarı gösterimi
-- Modal ile silme ve toplu silme işlemlerinde onay
+3. **Borrow Book:**
+   - On the "Borrow Book" page, select the book and user to borrow.
+   - Manage borrowing and return operations.
 
 ---
 
-## 📝 Kod Standartları ve Açıklamalar
-- Tüm ana bileşenlerde (Form, Modal, Header, Layout, sayfa bileşenleri) detaylı açıklama ve yorum satırları eklenmiştir.
-- Kodun okunabilirliği ve sürdürülebilirliği için fonksiyonlar, state'ler ve önemli JSX blokları açıklanmıştır.
-- index.css dosyasında ana bölümler ve özel stiller için açıklayıcı yorumlar bulunmaktadır.
+## 🔍 Detailed Explanation
 
-## ⚠️ Kullanıcı Uyarıları ve Modal Kullanımı
-- Silme işlemlerinde, ilişkili veriler hakkında uyarı ve onay isteyen modallar açılır.
-- Yazar, yayınevi veya kategori silindiğinde, ilişkili tüm kitaplar da silinir.
-- Silinen veriler geri getirilemez.
-- Kategori, yazar ve yayınevi eklemeden kitap eklenemez.
-- Bildirimler sticky ve fixed olarak ekranın üstünde ve ortasında gösterilir.
+### Project Purpose & Scope
 
-## 🎨 UI/UX ve Erişilebilirlik
-- Header sabit ve scroll ile blur efekti alır.
-- Modal başlıkları vurgulu, büyük ve bold olarak görünür.
-- Form inputları ve butonlar erişilebilir ve modern tasarıma sahiptir.
-- Tüm formlar ve modallar, kullanıcıya açıklayıcı uyarılar ve yönlendirmeler sunar.
+This project is developed to help small and medium-sized libraries easily manage books, authors, publishers, categories, and borrowing operations. With its modern interface and strong backend integration, it offers a fast and secure experience.
 
-## 🔄 Son Güncellemeler
-- Kodun tamamında açıklayıcı yorumlar ve başlıklar eklendi.
-- Modal ve bildirim sistemleri geliştirildi.
-- Tüm silme işlemlerinde ilişkili veriler ve geri dönüşsüzlük hakkında uyarı veriliyor.
-- Ödünç alma kaydı güncellerken kitap ve email alanları sadece güncelleme modunda disabled ve mevcut veri gösteriliyor.
-- index.css dosyasında bölümler ve önemli alanlar için açıklayıcı yorumlar eklendi.
+### Technical Details
+
+#### Books.jsx - Books Page Component
+
+- Listing, adding, editing, and deleting books
+- Multi-category selection and filtering
+- Association with author and publisher
+- Stock management and borrowing integration
+
+#### BorrowBook.jsx - Borrow Component
+
+- Book borrowing and return operations
+- Stock update
+- User-specific notifications
+
+#### Notification System
+- Alerts are shown below the header for success and error cases
+- Confirmation modals for delete and bulk delete operations
 
 ---
 
-## 👤 İletişim
+## 📝 Code Standards & Comments
+- All main components (Form, Modal, Header, Layout, page components) include detailed explanations and comments.
+- Functions, states, and important JSX blocks are explained for readability and maintainability.
+- The index.css file contains explanatory comments for main sections and custom styles.
+
+## ⚠️ User Warnings & Modal Usage
+- For delete operations, modals open to warn and ask for confirmation about related data.
+- When an author, publisher, or category is deleted, all related books are also deleted.
+- Deleted data cannot be recovered.
+- Books cannot be added without adding a category, author, and publisher first.
+- Notifications are shown sticky and fixed at the top and center of the screen.
+
+## 🎨 UI/UX & Accessibility
+- Header is fixed and gets a blur effect on scroll.
+- Modal titles are highlighted, large, and bold.
+- Form inputs and buttons are accessible and have a modern design.
+- All forms and modals provide clear warnings and guidance to the user.
+
+## 🔄 Latest Updates
+- Explanatory comments and headings added throughout the code.
+- Modal and notification systems improved.
+- All delete operations now warn about related data and irreversibility.
+- When updating a borrow record, book and email fields are disabled and show current data only in update mode.
+- Explanatory comments added to sections and important areas in index.css.
+
+---
+
+## 📞 Contact
 
 [Tunahan Yaşar](https://github.com/tunahanyasar)
 
+* GitHub: [@tunahanyasar](https://github.com/tunahanyasar)
+* LinkedIn: [Tunahan Yaşar](https://www.linkedin.com/in/tunahan-yasar/)
+
 ---
 
-## 📚 Kaynaklar ve Referanslar
+## 📚 Resources & References
+
+- [Books Backend Repo](https://github.com/FurkanTsdmr/LibraryAppSpringBoot)
 
 - [React](https://react.dev/)
 - [Vite](https://vitejs.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Spring Boot](https://spring.io/projects/spring-boot)
-- [PostgreSQL](https://www.postgresql.org/)
+- [PostgreSQL](https://www.postgresql.org/) 
