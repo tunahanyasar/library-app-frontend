@@ -1,18 +1,21 @@
 # 📚 Library Management App | React + Vite + Tailwind
 
-<<<<<<< HEAD
-[🇹🇷 Click here for the Turkish README](./README.tr.md)
-=======
-Kütüphane yönetimi için modern, kullanıcı dostu bir web uygulamasıdır. React, Vite ve Tailwind CSS ile geliştirilmiş olup, önceden yazılmış olan Spring Boot tabanlı bir backend API ile tam entegredir.
->>>>>>> 70127c123d294f12c8ed4510099f034cb98045ab
 
-*Created: May 2025*
+[🇹🇷 Click here for the Turkish README](./README.tr.md)
+
+
+
+*Created on: May 2025*
 
 A modern, user-friendly web application for library management. Developed with React, Vite, and Tailwind CSS, fully integrated with a Spring Boot-based backend API.
 
 * This project is designed to manage books, authors, publishers, categories, and borrowing operations.
 * **React**, **Vite**, **Tailwind CSS**, **Spring Boot**, and **PostgreSQL** are used. The frontend was built with React for the provided backend project.
 * Features a modern and responsive interface.
+
+---
+
+## 🌐 Live Demo
 
 * Projenin Canlı Linki : [ https://library-app-frontend-omega.vercel.app/ ]
 * Backend : [ https://library-app-backend-jtd1.onrender.com ]
@@ -22,7 +25,7 @@ A modern, user-friendly web application for library management. Developed with R
 * Books API: [ https://library-app-backend-jtd1.onrender.com/api/v1/books ] 
 * Boorrows API: [ https://library-app-backend-jtd1.onrender.com/api/v1/borrows ]
 
-> **NOT:** İsteği gönderdikten sonra verilerin gelmesi birkaç dakika sürebilir. Render, uzun süre istek almadığında uyku moduna geçmektedir.
+> **Note:** After sending a request, it may take a few minutes for the data to load. Render puts the backend to sleep when there is no request for a while.
 
 ---
 
@@ -48,11 +51,25 @@ npm install
 npm run dev
 ```
 
-<<<<<<< HEAD
-> **Note:** You must also start the backend (Spring Boot) service. By default, the backend should run at `http://localhost:8080`.
-=======
-> **Not:** Backend uyglaması Render ile canlıya alınmıştır. Verilerin yüklenmesi bir kaç dakikanızı alabilir. Beklemenizi gerektirir.
->>>>>>> 70127c123d294f12c8ed4510099f034cb98045ab
+
+> **Note**: The backend application is deployed on Render. It may take a few minutes for the data to load. Please be patient while waiting.
+---
+## 🎮 How to Use?
+
+1. **Home Page:**
+   - View all books, authors, publishers, and categories in the library.
+   - Use the search boxes to filter.
+   - Edit or delete any record.
+
+2. **Add/Edit Book:**
+   - Click the "Add New Book" button.
+   - Enter book details in the modal and save.
+   - To edit a book, click the edit icon in the relevant row.
+
+3. **Borrow Book:**
+   - On the "Borrow Book" page, select the book and user to borrow.
+   - Manage borrowing and return operations.
+
 
 ---
 
@@ -159,6 +176,58 @@ npm run dev
 
 ---
 
+## 🔍 Detailed Explanation
+
+### Project Purpose & Scope
+
+This project is developed to help small and medium-sized libraries easily manage books, authors, publishers, categories, and borrowing operations. With its modern interface and strong backend integration, it offers a fast and secure experience.
+
+### Technical Details
+
+#### Books.jsx - Books Page Component
+
+- Listing, adding, editing, and deleting books
+- Multi-category selection and filtering
+- Association with author and publisher
+- Stock management and borrowing integration
+
+#### BorrowBook.jsx - Borrow Component
+
+- Book borrowing and return operations
+- Stock update
+- User-specific notifications
+
+#### Notification System
+- Alerts are shown below the header for success and error cases
+- Confirmation modals for delete and bulk delete operations
+
+---
+
+## 📝 Code Standards & Comments
+- All main components (Form, Modal, Header, Layout, page components) include detailed explanations and comments.
+- Functions, states, and important JSX blocks are explained for readability and maintainability.
+- The index.css file contains explanatory comments for main sections and custom styles.
+
+## ⚠️ User Warnings & Modal Usage
+- For delete operations, modals open to warn and ask for confirmation about related data.
+- When an author, publisher, or category is deleted, all related books are also deleted.
+- Deleted data cannot be recovered.
+- Books cannot be added without adding a category, author, and publisher first.
+- Notifications are shown sticky and fixed at the top and center of the screen.
+
+## 🎨 UI/UX & Accessibility
+- Header is fixed and gets a blur effect on scroll.
+- Modal titles are highlighted, large, and bold.
+- Form inputs and buttons are accessible and have a modern design.
+- All forms and modals provide clear warnings and guidance to the user.
+
+## 🔄 Latest Updates
+- Explanatory comments and headings added throughout the code.
+- Modal and notification systems improved.
+- All delete operations now warn about related data and irreversibility.
+- When updating a borrow record, book and email fields are disabled and show current data only in update mode.
+- Explanatory comments added to sections and important areas in index.css.
+---
 # :paperclip: Page Screenshots : Fullpages
 
 ### Home Page
@@ -222,78 +291,6 @@ npm run dev
 
 ---
 
-## 🎮 How to Use?
-
-1. **Home Page:**
-   - View all books, authors, publishers, and categories in the library.
-   - Use the search boxes to filter.
-   - Edit or delete any record.
-
-2. **Add/Edit Book:**
-   - Click the "Add New Book" button.
-   - Enter book details in the modal and save.
-   - To edit a book, click the edit icon in the relevant row.
-
-3. **Borrow Book:**
-   - On the "Borrow Book" page, select the book and user to borrow.
-   - Manage borrowing and return operations.
-
----
-
-## 🔍 Detailed Explanation
-
-### Project Purpose & Scope
-
-This project is developed to help small and medium-sized libraries easily manage books, authors, publishers, categories, and borrowing operations. With its modern interface and strong backend integration, it offers a fast and secure experience.
-
-### Technical Details
-
-#### Books.jsx - Books Page Component
-
-- Listing, adding, editing, and deleting books
-- Multi-category selection and filtering
-- Association with author and publisher
-- Stock management and borrowing integration
-
-#### BorrowBook.jsx - Borrow Component
-
-- Book borrowing and return operations
-- Stock update
-- User-specific notifications
-
-#### Notification System
-- Alerts are shown below the header for success and error cases
-- Confirmation modals for delete and bulk delete operations
-
----
-
-## 📝 Code Standards & Comments
-- All main components (Form, Modal, Header, Layout, page components) include detailed explanations and comments.
-- Functions, states, and important JSX blocks are explained for readability and maintainability.
-- The index.css file contains explanatory comments for main sections and custom styles.
-
-## ⚠️ User Warnings & Modal Usage
-- For delete operations, modals open to warn and ask for confirmation about related data.
-- When an author, publisher, or category is deleted, all related books are also deleted.
-- Deleted data cannot be recovered.
-- Books cannot be added without adding a category, author, and publisher first.
-- Notifications are shown sticky and fixed at the top and center of the screen.
-
-## 🎨 UI/UX & Accessibility
-- Header is fixed and gets a blur effect on scroll.
-- Modal titles are highlighted, large, and bold.
-- Form inputs and buttons are accessible and have a modern design.
-- All forms and modals provide clear warnings and guidance to the user.
-
-## 🔄 Latest Updates
-- Explanatory comments and headings added throughout the code.
-- Modal and notification systems improved.
-- All delete operations now warn about related data and irreversibility.
-- When updating a borrow record, book and email fields are disabled and show current data only in update mode.
-- Explanatory comments added to sections and important areas in index.css.
-
----
-
 ## 📞 Contact
 
 [Tunahan Yaşar](https://github.com/tunahanyasar)
@@ -305,7 +302,6 @@ This project is developed to help small and medium-sized libraries easily manage
 
 ## 📚 Resources & References
 
-- [Books Backend Repo](https://github.com/FurkanTsdmr/LibraryAppSpringBoot)
 
 - [Backend Repo](https://github.com/FurkanTsdmr/LibraryAppSpringBoot)
 
@@ -313,10 +309,7 @@ This project is developed to help small and medium-sized libraries easily manage
 - [Vite](https://vitejs.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Spring Boot](https://spring.io/projects/spring-boot)
-<<<<<<< HEAD
-- [PostgreSQL](https://www.postgresql.org/) 
-=======
 - [PostgreSQL](https://www.postgresql.org/)
 
 
->>>>>>> 70127c123d294f12c8ed4510099f034cb98045ab
+

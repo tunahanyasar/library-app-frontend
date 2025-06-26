@@ -1,43 +1,70 @@
-# 📚 Library Management App | React + Vite + Tailwind
+# 📚 Kütüphane Yönetim Uygulaması | React + Vite + Tailwind
 
 [🇬🇧 İngilizce README için tıklayın](./README.md)
 
-*Oluşturulma Tarihi : Mayıs 2025*
+*Oluşturulma Tarihi: Mayıs 2025*
 
-Kütüphane yönetimi için modern, kullanıcı dostu bir web uygulamasıdır. React, Vite ve Tailwind CSS ile geliştirilmiş olup, Spring Boot tabanlı bir backend API ile tam entegredir.
+Modern, kullanıcı dostu bir kütüphane yönetim web uygulamasıdır. React, Vite ve Tailwind CSS ile geliştirilmiş olup, Spring Boot tabanlı bir backend API ile tam entegredir.
 
-* Bu proje, kitap, yazar, yayınevi, kategori ve ödünç alma işlemlerini yönetmek için geliştirilmiştir.
-* **React**, **Vite**, **Tailwind CSS**, **Spring Boot** ve **PostgreSQL** kullanılmıştır. Hazır olarak verilen backend projesine **React** ile frontend hazırlandı.
+* Bu proje; kitap, yazar, yayınevi, kategori ve ödünç alma işlemlerini yönetmek için tasarlanmıştır.
+* **React**, **Vite**, **Tailwind CSS**, **Spring Boot** ve **PostgreSQL** kullanılmıştır. Frontend, verilen backend projesi için React ile hazırlanmıştır.
 * Modern ve responsive bir arayüze sahiptir.
+
+---
+
+## 🌐 Canlı Demo
+
+- **Frontend:** [https://library-app-frontend-omega.vercel.app/](https://library-app-frontend-omega.vercel.app/)
+- **Backend:** [https://library-app-backend-jtd1.onrender.com](https://library-app-backend-jtd1.onrender.com)
+- **Kategoriler API:** [https://library-app-backend-jtd1.onrender.com/api/v1/categories](https://library-app-backend-jtd1.onrender.com/api/v1/categories)
+- **Yayınevleri API:** [https://library-app-backend-jtd1.onrender.com/api/v1/publishers](https://library-app-backend-jtd1.onrender.com/api/v1/publishers)
+- **Yazarlar API:** [https://library-app-backend-jtd1.onrender.com/api/v1/authors](https://library-app-backend-jtd1.onrender.com/api/v1/authors)
+- **Kitaplar API:** [https://library-app-backend-jtd1.onrender.com/api/v1/books](https://library-app-backend-jtd1.onrender.com/api/v1/books)
+- **Ödünçler API:** [https://library-app-backend-jtd1.onrender.com/api/v1/borrows](https://library-app-backend-jtd1.onrender.com/api/v1/borrows)
+
+> **Not:** Backend Render üzerinde barındırılmaktadır. Uzun süre istek yapılmazsa uyku moduna geçer ve ilk istekte verilerin gelmesi birkaç dakika sürebilir.
 
 ---
 
 ## :computer: Kurulum ve Kullanım
 
 1. Projeyi klonlayın
-```bash
-git clone https://github.com/tunahanyasar/library-app-frontend.git
-```
-
+   ```bash
+   git clone https://github.com/tunahanyasar/library-app-frontend.git
+   ```
 2. Frontend klasörüne gidin
-```bash
-cd react-frontend
-```
-
+   ```bash
+   cd library-app-frontend
+   ```
 3. Bağımlılıkları yükleyin
-```bash
-npm install
-```
-
+   ```bash
+   npm install
+   ```
 4. Geliştirme sunucusunu başlatın
-```bash
-npm run dev
-```
+   ```bash
+   npm run dev
+   ```
 
-> **Not:** Backend (Spring Boot) servisini de başlatmalısınız. Varsayılan olarak backend `http://localhost:8080` adresinde çalışmalıdır.
+> **Not:** Backend uygulaması Render üzerinde barındırılmaktadır. Verilerin yüklenmesi birkaç dakika sürebilir. 
 
 ---
+## 🎮 Nasıl Kullanılır?
 
+1. **Ana Sayfa:**
+   - Kütüphanedeki tüm kitapları, yazarları, yayınevlerini ve kategorileri görüntüleyin.
+   - Arama kutularını kullanarak filtreleme yapın.
+   - Herhangi bir kaydı düzenleyin veya silin.
+
+2. **Kitap Ekle/Düzenle:**
+   - "Yeni Kitap Ekle" butonuna tıklayın.
+   - Açılan modalda kitap bilgilerini girin ve kaydedin.
+   - Kitapları düzenlemek için ilgili satırdaki düzenle ikonuna tıklayın.
+
+3. **Ödünç Alma:**
+   - "Ödünç Alma" sayfasında ödünç alınacak kitabı ve kullanıcıyı seçin.
+   - Ödünç alma ve iade işlemlerini yönetin.
+
+---
 ## 📜 Proje Yapısı
 
 :open_file_folder: **Klasörler;**
@@ -64,162 +91,76 @@ npm run dev
 * *tailwind.config.js*
 * *vite.config.js*
 
-1. ***src/components/***: Ortak kullanılan arayüz bileşenleri (modal, form, header, layout).
-2. ***src/pages/***: Her bir ana sayfa için React bileşenleri (kitaplar, yazarlar, yayınevleri, kategoriler, ödünç alma, ana sayfa).
+1. ***src/components/***: Ortak arayüz bileşenleri (modal, form, header, layout).
+2. ***src/pages/***: Her ana sayfa için React bileşenleri (kitaplar, yazarlar, yayınevleri, kategoriler, ödünç, ana sayfa).
 3. ***src/services/api.js***: Backend API ile iletişim fonksiyonları.
 4. ***index.css*** ve ***tailwind.config.js***: Tüm stil ve tema ayarları.
 
 ---
 
-## :star2: Mevcut Özellikler
+## :star2: Özellikler
 
 1. **CRUD İşlemleri**
-   - Kitap ekleme, düzenleme, silme, listeleme. Görsel: [Add Book](#kitap-ekleme)
-   - Yazar ekleme, düzenleme, silme, listeleme. Görsel: [Add Author](#yazar-ekleme)
-   - Yayınevi ekleme, düzenleme, silme, listeleme. Görsel: [Add Publisher](#yayımcı-ekleme)
-   - Kategori ekleme, düzenleme, silme, listeleme. Görsel: [Add Category](#kategori-ekleme)
-   - Kitap ödünç alma ve iade işlemleri
-   Görsel: [Add Borrow](#ödünç-alma-ekleme)
-   **NOT :** 
-        * Veri tabanında kullanılan kategoriler silinemez.
-        * Yazar veya Yayımcı silinirse bağlı olduğu veriler *(Kitaplar, Ödnüç Alma)* de silinir.
-        * Silinen veriler geri getirilemez. Tamamen silinir. 
+   - Kitap ekle, düzenle, sil ve listele. Görsel: [Kitap Ekle](#kitap-ekle)
+   - Yazar ekle, düzenle, sil ve listele. Görsel: [Yazar Ekle](#yazar-ekle)
+   - Yayımcı ekle, düzenle, sil ve listele. Görsel: [Yayımcı Ekle](#yayımcı-ekle)
+   - Kategori ekle, düzenle, sil ve listele. Görsel: [Kategori Ekle](#kategori-ekle)
+   - Kitap ödünç alma ve iade işlemleri. Görsel: [Ödünç Alma Ekle](#ödünç-alma-ekle)
+   **NOT:**
+        * Veritabanında kullanılan kategoriler silinemez.
+        * Bir yazar veya yayımcı silinirse, ona bağlı tüm veriler *(Kitaplar, Ödünç Kayıtları)* de silinir.
+        * Silinen veriler geri getirilemez, tamamen silinir.
 
-2. **Arama ve Filtreleme**
-   - Kitap, yazar, yayınevi ve kategoriye göre arama
+2. **Arama & Filtreleme**
+   - Kitap, yazar, yayımcı ve kategoriye göre arama
    - Çoklu kategori seçimi
    - Anlık filtreleme
-   Görsel : [Searchbar Publishers](#yayımcı-aratma)
-   - Ödünç alma sayfasında hem kitap ismi ile hem de kişi ismi ile ayrı ayrı aratma yapılabilir.
-   Görsel : [Searchbar Borrow](#kitap-i̇smi-ile-aratma)
+   - Yayımcı arama görseli: [Yayımcı Arama](#yayımcı-arama)
+   - Ödünç alma sayfasında kitap adına veya kişi adına göre ayrı ayrı arama yapılabilir. Görseller: [Kitap Adı ile Arama](#kitap-adı-ile-arama), [Kişi Adı ile Arama](#kişi-adıyla-arama)
 
-3. **Modern UI/UX**
-   - Responsive ve kullanıcı dostu arayüz.
-   Görsel: [Pages](#paperclip-sayfa-çıktıları--fullpages)
+3. **Modern Arayüz ve Kullanıcı Deneyimi**
+   - Responsive ve kullanıcı dostu arayüz. Görsel: [Sayfa Ekran Görüntüleri](#ana-sayfa)
    - Temiz ve düzenli kod yapısı
-   - Bildirim sistemi (başarı/hata uyarıları, yapılan işlemler alert ile kullanıcıya gösterilir)
-   Görsel: [Alerts](#paperclip-sayfa-çıktıları--alerts)
+   - Bildirim sistemi (başarı/hata uyarıları, yapılan işlemler alert ile kullanıcıya gösterilir). Görsel: [Bildirimler](#kategori-silme-bildirimi)
    - Modal ile ekleme/düzenleme/silme işlemleri
-   - Koyu ve açık renk uyumlu tasarım
-
+   - Koyu ve açık tema desteği
 
 4. **Ekstra Özellikler**
-   - Kitap ödünç alma ve iade işlemlerinde stok yönetimi
+   - Ödünç alma ve iade işlemlerinde stok yönetimi
    - Kategori silme işlemlerinde ilişkili kitap kontrolü
-   - Tüm verileri topluca silme için onay modalları
-   - Verilerin otomatik sıralanması (en son güncellenen/en son eklenen en üstte)
+   - Toplu veri silme için onay modalları
+   - Verilerin otomatik sıralanması (en son eklenen/güncellenen en üstte)
    - Uzun metinlerin otomatik kısaltılması ve "..." ile gösterilmesi
 
 ---
 
-## 💡 Kullanılan Yapılar | Kazanımlar
+## 💡 Kullanılan Teknolojiler
 
-**React:**
-* Component Mimarisi
-* Props Sistemi
-* React Hooks (useState, useEffect, useCallback)
-* Event Handling
-* Conditional Rendering
-* React Router
+- **React:**
+  - Bileşen Mimarisi
+  - Props Sistemi
+  - React Hook'ları (useState, useEffect, useCallback)
+  - Olay Yönetimi
+  - Koşullu Render
+  - React Router
 
-**Tailwind CSS:**
-* Utility-first CSS
-* Responsive Design
-* Custom Theme
-* Modern ve hızlı stil yönetimi
+- **Tailwind CSS:**
+  - Utility-first CSS
+  - Responsive Tasarım
+  - Özel Tema
+  - Modern ve hızlı stil yönetimi
 
-**JavaScript:**
-* ES6+ Özellikleri
-* Array Metodları
-* API Entegrasyonu (Axios)
-* State Management
-* Asenkron Programlama
+- **JavaScript:**
+  - ES6+ Özellikleri
+  - Dizi Metodları
+  - API Entegrasyonu (Axios)
+  - State Yönetimi
+  - Asenkron Programlama
 
-**Backend (Spring Boot):**
-* RESTful API
-* PostgreSQL ile veri yönetimi
-* CORS ve güvenlik ayarları
-
----
-
-# :paperclip: Sayfa Çıktıları : Fullpages
-
-### Ana Sayfa
-![HomePage](./src/assets/screenshots/fullpages/homepage.png)
-
-### Yayımcılar Sayfası
-![Publishers Page](./src/assets/screenshots/fullpages/publishers.png)
-
-### Kategoriler Sayfası
-![Categories Page](./src/assets/screenshots/fullpages/categories.png)
-
-### Kitaplar Sayfası
-![Books Page](./src/assets/screenshots/fullpages/books.png)
-
-### Yazarlar Sayfası
-![Authors Page](./src/assets/screenshots/fullpages/authors.png)
-
-### Ödünç Alma Sayfası
-![Borrow Page](./src/assets/screenshots/fullpages/borrows.png)
-
-# :paperclip: Sayfa Çıktıları : CRUD
-
-### Kitap Ekleme
-![Add Book](./src/assets/screenshots/addings/add_books.png)
-
-### Yazar Ekleme
-![Add Author](./src/assets/screenshots/addings/add_author.png)
-
-### Kategori Ekleme
-![Add Category](./src/assets/screenshots/addings/add_category.png)
-
-### Yayımcı Ekleme
-![Add Publisher](./src/assets/screenshots/addings/add_publisher.png)
-
-### Ödünç Alma Ekleme
-![Add Borrow](./src/assets/screenshots/addings/add_borrow.png)
-
-# :paperclip: Sayfa Çıktıları : Alerts
-
-### Kategori Silme Alert
-![Category Alert](./src/assets/screenshots/alerts/alert1.png)
-
-### Kategori Ekleme Alert 
-![Category Alert1](./src/assets/screenshots/alerts/alert2.png)
-
-### Silme İşlemi Yazar Modal
-![Author Delete Modal](./src/assets/screenshots/alerts/alert3.png)
-
-### Silme İşlemi Yayımcı Modal
-![Publisher Delete Modal](./src/assets/screenshots/alerts/alert4.png)
-
-# :paperclip: Sayfa Çıktıları : Searchbar
-### Yayımcı Aratma
-![Search Publisher](./src/assets/screenshots/searchbar/searchbar1.png)
-
-### Kitap İsmi ile Aratma
-![Search Borrow1](./src/assets/screenshots/searchbar/searchbar2.png)
-
-### Kişi İsmi ile Aratma
-![Search Borrow2](./src/assets/screenshots/searchbar/searchbar3.png)
-
----
-
-## 🎮 Nasıl Kullanılır?
-
-1. **Ana Sayfa:**
-   - Kütüphanedeki tüm kitapları, yazarları, yayınevlerini ve kategorileri görüntüleyin.
-   - Arama kutularını kullanarak filtreleme yapın.
-   - Herhangi bir kaydı düzenleyin veya silin.
-
-2. **Kitap Ekleme/Düzenleme:**
-   - "Yeni Kitap Ekle" butonuna tıklayın.
-   - Açılan modalda kitap bilgilerini girin ve kaydedin.
-   - Kitapları düzenlemek için ilgili satırdaki düzenle ikonuna tıklayın.
-
-3. **Ödünç Alma:**
-   - "Kitap Alma" sayfasında ödünç alınacak kitabı ve kullanıcıyı seçin.
-   - Ödünç alma ve iade işlemlerini yönetin.
+- **Backend (Spring Boot):**
+  - RESTful API
+  - PostgreSQL ile veri yönetimi
+  - CORS ve güvenlik ayarları
 
 ---
 
@@ -245,26 +186,26 @@ Bu proje, küçük ve orta ölçekli kütüphanelerin kitap, yazar, yayınevi, k
 - Kullanıcıya özel bildirimler
 
 #### Bildirim Sistemi
-- Başarı ve hata durumlarında headerin altında uyarı gösterimi
-- Modal ile silme ve toplu silme işlemlerinde onay
+- Başarı ve hata durumlarında başlık altında uyarı gösterimi
+- Silme ve toplu silme işlemlerinde onay modalları
 
 ---
 
-## 📝 Kod Standartları ve Açıklamalar
+## 📝 Kod Standartları & Açıklamalar
 - Tüm ana bileşenlerde (Form, Modal, Header, Layout, sayfa bileşenleri) detaylı açıklama ve yorum satırları eklenmiştir.
-- Kodun okunabilirliği ve sürdürülebilirliği için fonksiyonlar, state'ler ve önemli JSX blokları açıklanmıştır.
+- Fonksiyonlar, state'ler ve önemli JSX blokları okunabilirlik ve sürdürülebilirlik için açıklanmıştır.
 - index.css dosyasında ana bölümler ve özel stiller için açıklayıcı yorumlar bulunmaktadır.
 
-## ⚠️ Kullanıcı Uyarıları ve Modal Kullanımı
+## ⚠️ Kullanıcı Uyarıları & Modal Kullanımı
 - Silme işlemlerinde, ilişkili veriler hakkında uyarı ve onay isteyen modallar açılır.
 - Yazar, yayınevi veya kategori silindiğinde, ilişkili tüm kitaplar da silinir.
 - Silinen veriler geri getirilemez.
 - Kategori, yazar ve yayınevi eklemeden kitap eklenemez.
 - Bildirimler sticky ve fixed olarak ekranın üstünde ve ortasında gösterilir.
 
-## 🎨 UI/UX ve Erişilebilirlik
+## 🎨 UI/UX & Erişilebilirlik
 - Header sabit ve scroll ile blur efekti alır.
-- Modal başlıkları vurgulu, büyük ve bold olarak görünür.
+- Modal başlıkları vurgulu, büyük ve kalın olarak görünür.
 - Form inputları ve butonlar erişilebilir ve modern tasarıma sahiptir.
 - Tüm formlar ve modallar, kullanıcıya açıklayıcı uyarılar ve yönlendirmeler sunar.
 
@@ -272,8 +213,72 @@ Bu proje, küçük ve orta ölçekli kütüphanelerin kitap, yazar, yayınevi, k
 - Kodun tamamında açıklayıcı yorumlar ve başlıklar eklendi.
 - Modal ve bildirim sistemleri geliştirildi.
 - Tüm silme işlemlerinde ilişkili veriler ve geri dönüşsüzlük hakkında uyarı veriliyor.
-- Ödünç alma kaydı güncellerken kitap ve email alanları sadece güncelleme modunda disabled ve mevcut veri gösteriliyor.
+- Ödünç alma kaydı güncellenirken kitap ve email alanları sadece güncelleme modunda disabled ve mevcut veri gösteriliyor.
 - index.css dosyasında bölümler ve önemli alanlar için açıklayıcı yorumlar eklendi.
+
+---
+
+# :paperclip: Sayfa Ekran Görüntüleri : Tüm Sekmeler
+
+### Ana Sayfa
+![Ana Sayfa](./src/assets/screenshots/fullpages/homepage.png)
+
+### Yayımcılar Sayfası
+![Yayımcılar Sayfası](./src/assets/screenshots/fullpages/publishers.png)
+
+### Kategoriler Sayfası
+![Kategoriler Sayfası](./src/assets/screenshots/fullpages/categories.png)
+
+### Kitaplar Sayfası
+![Kitaplar Sayfası](./src/assets/screenshots/fullpages/books.png)
+
+### Yazarlar Sayfası
+![Yazarlar Sayfası](./src/assets/screenshots/fullpages/authors.png)
+
+### Ödünç Alma Sayfası
+![Ödünç Alma Sayfası](./src/assets/screenshots/fullpages/borrows.png)
+
+# :paperclip: Sayfa Ekran Görüntüleri : CRUD
+
+### Kitap Ekle
+![Kitap Ekle](./src/assets/screenshots/addings/add_books.png)
+
+### Yazar Ekle
+![Yazar Ekle](./src/assets/screenshots/addings/add_author.png)
+
+### Kategori Ekle
+![Kategori Ekle](./src/assets/screenshots/addings/add_category.png)
+
+### Yayımcı Ekle
+![Yayımcı Ekle](./src/assets/screenshots/addings/add_publisher.png)
+
+### Ödünç Alma Ekle
+![Ödünç Alma Ekle](./src/assets/screenshots/addings/add_borrow.png)
+
+# :paperclip: Sayfa Ekran Görüntüleri : Bildirimler
+
+### Kategori Silme Bildirimi
+![Kategori Silme Bildirimi](./src/assets/screenshots/alerts/alert1.png)
+
+### Kategori Ekleme Bildirimi
+![Kategori Ekleme Bildirimi](./src/assets/screenshots/alerts/alert2.png)
+
+### Yazar Silme Modalı
+![Yazar Silme Modalı](./src/assets/screenshots/alerts/alert3.png)
+
+### Yayımcı Silme Modalı
+![Yayımcı Silme Modalı](./src/assets/screenshots/alerts/alert4.png)
+
+# :paperclip: Sayfa Ekran Görüntüleri : Arama Çubuğu
+
+### Yayımcı Arama
+![Yayımcı Arama](./src/assets/screenshots/searchbar/searchbar1.png)
+
+### Kitap Adı ile Arama
+![Kitap Adı ile Arama](./src/assets/screenshots/searchbar/searchbar2.png)
+
+### Kişi Adıyla Arama
+![Kişi Adıyla Arama](./src/assets/screenshots/searchbar/searchbar3.png)
 
 ---
 
@@ -282,16 +287,15 @@ Bu proje, küçük ve orta ölçekli kütüphanelerin kitap, yazar, yayınevi, k
 [Tunahan Yaşar](https://github.com/tunahanyasar)
 
 * GitHub: [@tunahanyasar](https://github.com/tunahanyasar)
-* LinkedIn: [Tunahan Yaşar](https://www.linkedin.com/in/tunahan-yasar/) 
+* LinkedIn: [Tunahan Yaşar](https://www.linkedin.com/in/tunahan-yasar/)
 
 ---
 
-## 📚 Kaynaklar ve Referanslar
+## 📚 Kaynaklar & Referanslar
 
-- [Books Backend Repo](https://github.com/FurkanTsdmr/LibraryAppSpringBoot)
-
+- [Backend Repo](https://github.com/FurkanTsdmr/LibraryAppSpringBoot)
 - [React](https://react.dev/)
 - [Vite](https://vitejs.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Spring Boot](https://spring.io/projects/spring-boot)
-- [PostgreSQL](https://www.postgresql.org/)
+- [PostgreSQL](https://www.postgresql.org/) 
