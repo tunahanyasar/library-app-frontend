@@ -1,6 +1,10 @@
 # 📚 Library Management App | React + Vite + Tailwind
 
+<<<<<<< HEAD
 [🇹🇷 Click here for the Turkish README](./README.tr.md)
+=======
+Kütüphane yönetimi için modern, kullanıcı dostu bir web uygulamasıdır. React, Vite ve Tailwind CSS ile geliştirilmiş olup, önceden yazılmış olan Spring Boot tabanlı bir backend API ile tam entegredir.
+>>>>>>> 70127c123d294f12c8ed4510099f034cb98045ab
 
 *Created: May 2025*
 
@@ -9,6 +13,16 @@ A modern, user-friendly web application for library management. Developed with R
 * This project is designed to manage books, authors, publishers, categories, and borrowing operations.
 * **React**, **Vite**, **Tailwind CSS**, **Spring Boot**, and **PostgreSQL** are used. The frontend was built with React for the provided backend project.
 * Features a modern and responsive interface.
+
+* Projenin Canlı Linki : [ https://library-app-frontend-omega.vercel.app/ ]
+* Backend : [ https://library-app-backend-jtd1.onrender.com ]
+* Categories API: [ https://library-app-backend-jtd1.onrender.com/api/v1/categories ] 
+* Publishers API: [ https://library-app-backend-jtd1.onrender.com/api/v1/publishers ] 
+* Authors API: [ https://library-app-backend-jtd1.onrender.com/api/v1/authors ] 
+* Books API: [ https://library-app-backend-jtd1.onrender.com/api/v1/books ] 
+* Boorrows API: [ https://library-app-backend-jtd1.onrender.com/api/v1/borrows ]
+
+> **NOT:** İsteği gönderdikten sonra verilerin gelmesi birkaç dakika sürebilir. Render, uzun süre istek almadığında uyku moduna geçmektedir.
 
 ---
 
@@ -34,7 +48,11 @@ npm install
 npm run dev
 ```
 
+<<<<<<< HEAD
 > **Note:** You must also start the backend (Spring Boot) service. By default, the backend should run at `http://localhost:8080`.
+=======
+> **Not:** Backend uyglaması Render ile canlıya alınmıştır. Verilerin yüklenmesi bir kaç dakikanızı alabilir. Beklemenizi gerektirir.
+>>>>>>> 70127c123d294f12c8ed4510099f034cb98045ab
 
 ---
 
@@ -289,8 +307,16 @@ This project is developed to help small and medium-sized libraries easily manage
 
 - [Books Backend Repo](https://github.com/FurkanTsdmr/LibraryAppSpringBoot)
 
+- [Backend Repo](https://github.com/FurkanTsdmr/LibraryAppSpringBoot)
+
 - [React](https://react.dev/)
 - [Vite](https://vitejs.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Spring Boot](https://spring.io/projects/spring-boot)
+<<<<<<< HEAD
 - [PostgreSQL](https://www.postgresql.org/) 
+=======
+- [PostgreSQL](https://www.postgresql.org/)
+
+
+>>>>>>> 70127c123d294f12c8ed4510099f034cb98045ab
