@@ -308,6 +308,7 @@ This project is developed to help small and medium-sized libraries easily manage
 
 - This frontend project was developed by cloning the ready-made backend repository: [Backend Repo](https://github.com/FurkanTsdmr/LibraryAppSpringBoot)
 <br>
+
 - [React](https://react.dev/)
 - [Vite](https://vitejs.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
