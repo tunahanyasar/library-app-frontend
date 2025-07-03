@@ -300,7 +300,7 @@ Bu proje, küçük ve orta ölçekli kütüphanelerin kitap, yazar, yayınevi, k
 
 ## 📚 Kaynaklar & Referanslar
 
-- Bu frontend projesi, aşağıdaki hazır backend reposu klonlanarak geliştirilmiştir: [Backend Repo](https://github.com/FurkanTsdmr/LibraryAppSpringBoot)
+- Bu frontend projesi, hazır backend reposu klonlanarak geliştirilmiştir: [Backend Repo](https://github.com/FurkanTsdmr/LibraryAppSpringBoot)
 <br>
 
 - [React](https://react.dev/)
