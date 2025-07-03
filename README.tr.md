@@ -44,6 +44,7 @@ Modern, kullanıcı dostu bir kütüphane yönetim web uygulamasıdır. React, V
    ```bash
    npm run dev
    ```
+5. Tarayıcıda açın: [http://localhost:5173](http://localhost:5173)
 
 > **Not:** Backend uygulaması Render üzerinde barındırılmaktadır. Verilerin yüklenmesi birkaç dakika sürebilir. 
 
@@ -52,20 +53,24 @@ Modern, kullanıcı dostu bir kütüphane yönetim web uygulamasıdır. React, V
 ---
 ## 🎮 Nasıl Kullanılır?
 
-1. **Ana Sayfa:**
-   - Kütüphanedeki tüm kitapları, yazarları, yayınevlerini ve kategorileri görüntüleyin.
-   - Arama kutularını kullanarak filtreleme yapın.
-   - Herhangi bir kaydı düzenleyin veya silin.
+Bu uygulama ile kütüphanedeki tüm varlıkları (kitaplar, yazarlar, yayınevleri, kategoriler ve ödünç kayıtları) kolayca yönetebilirsiniz. Her sekmede ekleme, düzenleme, silme ve listeleme (CRUD) işlemlerini gerçekleştirebilirsiniz:
 
-2. **Kitap Ekle/Düzenle:**
-   - "Yeni Kitap Ekle" butonuna tıklayın.
-   - Açılan modalda kitap bilgilerini girin ve kaydedin.
-   - Kitapları düzenlemek için ilgili satırdaki düzenle ikonuna tıklayın.
+1. **Kitaplar, Yazarlar, Yayıncılar ve Kategoriler:**
+   - İlgili sekmeye giderek mevcut kayıtları tablo halinde görüntüleyin.
+   - "Ekle" butonunu kullanarak yeni kayıt oluşturun.
+   - Her satırdaki düzenle ve sil ikonları ile kayıtları güncelleyin veya silin.
+   - Arama ve filtreleme kutularıyla istediğiniz kaydı kolayca bulun.
 
-3. **Ödünç Alma:**
-   - "Ödünç Alma" sayfasında ödünç alınacak kitabı ve kullanıcıyı seçin.
-   - Ödünç alma ve iade işlemlerini yönetin.
-> **Not:** Bu uygulamada verilerin yedeği güvenli bir şekilde saklanmaktadır. Dilediğiniz gibi veri ekleyebilir, silebilir veya güncelleyebilirsiniz. Tüm değişiklikler gerektiğinde geri alınabilir; bu nedenle veriler üzerinde özgürce işlem yapabilirsiniz.
+2. **Ödünç Alma:**
+   - "Ödünç Alma" sekmesinde, kitapları kullanıcıya ödünç verin veya iade işlemlerini yönetin.
+   - Aktif ve geçmiş ödünç kayıtlarını görüntüleyin, arama yapın.
+
+> **Not:** Tüm işlemler anında veritabanına kaydedilir ve bildirimlerle kullanıcıya geri bildirim sağlanır. Kategori, yazar veya yayınevi eklemeden kitap eklenemez. Silme işlemlerinde ilişkili veriler hakkında uyarı alırsınız.
+
+> **Not:** Bu uygulamada verilerin yedeği güvenli bir şekilde saklanmaktadır. Dilediğiniz gibi veri ekleyebilir, silebilir veya güncelleyebilirsiniz. Veriler üzerinde özgürce işlem yapabilirsiniz.
+
+Kullanıcı dostu arayüz sayesinde, kütüphanenizi hızlı ve güvenli şekilde yönetebilirsiniz.
+
 ---
 ## 📜 Proje Yapısı
 

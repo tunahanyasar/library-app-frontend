@@ -50,26 +50,29 @@ npm install
 ```bash
 npm run dev
 ```
-
+5. Tarayıcıda açın: [http://localhost:5173](http://localhost:5173)
 
 > **Note**: The backend application is deployed on Render. It may take a few minutes for the data to load. Please be patient while waiting.
 ---
 ## 🎮 How to Use?
 
-1. **Home Page:**
-   - View all books, authors, publishers, and categories in the library.
-   - Use the search boxes to filter.
-   - Edit or delete any record.
+With this application, you can easily manage all entities in your library (books, authors, publishers, categories, and borrow records). On each tab, you can perform create, read, update, and delete (CRUD) operations:
 
-2. **Add/Edit Book:**
-   - Click the "Add New Book" button.
-   - Enter book details in the modal and save.
-   - To edit a book, click the edit icon in the relevant row.
+1. **Books, Authors, Publishers, and Categories:**
+   - Go to the relevant tab to view existing records in a table.
+   - Use the "Add" button to create a new record.
+   - Use the edit and delete icons in each row to update or remove records.
+   - Easily find any record using the search and filter boxes.
 
-3. **Borrow Book:**
-   - On the "Borrow Book" page, select the book and user to borrow.
-   - Manage borrowing and return operations.
-> **Note:** The data in this application is securely backed up. You can freely add, delete, or update any data as you wish. All changes can be reverted if needed, so feel free to make any modifications you like..
+2. **Borrowing:**
+   - In the "Borrow" tab, lend books to users or manage return operations.
+   - View active and past borrow records, and search as needed.
+
+> **Note:** All operations are instantly saved to the database and you receive feedback via notifications. You cannot add a book without first adding a category, author, or publisher. You will be warned about related data when deleting records.
+
+> **Note:** The data in this application is securely backed up. You can freely add, delete, or update any data as you wish. You are free to manage your data as you like.
+
+Thanks to the user-friendly interface, you can manage your library quickly and securely.
 
 ---
 
@@ -303,8 +306,8 @@ This project is developed to help small and medium-sized libraries easily manage
 ## 📚 Resources & References
 
 
-- [Backend Repo](https://github.com/FurkanTsdmr/LibraryAppSpringBoot)
-
+- This frontend project was developed by cloning the ready-made backend repository: [Backend Repo](https://github.com/FurkanTsdmr/LibraryAppSpringBoot)
+<br>
 - [React](https://react.dev/)
 - [Vite](https://vitejs.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
