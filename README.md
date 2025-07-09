@@ -17,7 +17,8 @@ A modern, user-friendly web application for library management. Developed with R
 
 ## 🌐 Live Demo
 
-* Projenin Canlı Linki : [ https://library-app-frontend-omega.vercel.app/ ]
+* Frontend Live Demo : [ https://library-app-frontend-omega.vercel.app/ ]
+  <br>
 * Backend : [ https://library-app-backend-w6qr.onrender.com ]
 * Categories API: [ https://library-app-backend-w6qr.onrender.com/api/v1/categories ] 
 * Publishers API: [ https://library-app-backend-w6qr.onrender.com/api/v1/publishers ] 
